@@ -1,0 +1,79 @@
+//vars
+$light_gray: #f8f8f8;
+$dark_gray: #333333;
+
+$header_height: 56px; /* potential changes and dynamic resizing */
+
+
+//global
+body {
+  overflow: hidden;
+}
+.app-container {
+  padding: 0;
+  margin-top: $header_height;
+  height: calc(100vh - #{$header_height});
+  position: relative;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+//products
+section.products {
+  padding: 20px;
+  background: white;
+  &:nth-of-type(even) {
+    background: $light_gray;
+  }
+}
+
+
+//theater
+.theater {
+  background: $dark_gray;
+  #stream {
+    text-align: center;
+  }
+  .fake-video {
+    max-height: 75vh;
+  }
+}
+
+//panel & main
+#main {
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+.panel {
+  position: absolute;
+  top: 0;
+  right: -300px;
+  bottom: 0;
+  width: 340px;
+  border: 2px solid #83AF5D;
+  background: white;
+  &.open {
+    right: 0;
+    & + #main {
+      margin-right: 340px;
+    }
+  }
+  #chat,
+  #profile {
+    ;padding: 20px;
+  }
+  .panel-toggle {
+    float: left; padding: 5px;
+    button { cursor: pointer;}
+  }
+}
+
+//chat
+.chat {
+  position: relative;
+  .messages {
+    max-height: 100%;
+  }
+}

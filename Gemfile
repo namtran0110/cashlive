@@ -35,7 +35,17 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Bootsrap v4
+gem 'bootstrap', '~> 4.0.0.alpha6'
+# Tether Required for some bootstrap components (modals, popovers, tooltips)
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
+# Use Flutie for dynamic <title> values and <body> classes
+gem "flutie"
+# Use Devise for Users / Authentication
 gem 'devise'
+# Use Paperclip for file attachment
 gem "paperclip", "~> 5.0.0"
 
 group :development, :test do
