@@ -1,7 +1,6 @@
 class Store < ApplicationRecord
   belongs_to :user
 
-  validates :slug, uniqueness: true
-
+  validates :slug, presence: true, uniqueness: { message: "Username already in use" }
 
 end
