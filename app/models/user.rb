@@ -15,7 +15,7 @@ class User < ApplicationRecord
   private
 
     def generate_empty_store
-      Store.create!(user_id: self.id)
+      Store.create!(user_id: self.id, slug: self.username.parameterize)
     end
 
 end
