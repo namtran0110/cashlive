@@ -9,4 +9,13 @@ class User < ApplicationRecord
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+  after_create :do_something
+
+  private
+
+    def do_something
+      Store.create!(user_id: self.id)
+    end
+
 end
