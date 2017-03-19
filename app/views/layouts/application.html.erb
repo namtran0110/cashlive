@@ -6,11 +6,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+  </head>
   <body class="<%= body_class %>">
     <%= render 'shared/navbar' %>
-    <div class="container-fluid app-container">
+    <div class="container-fluid app-container container">
+       <% if flash.any? %>
+      <div style="margin-top: 60px;">
+        <%= flash_messages %>
+      </div>
+    <% end %>
       <%= yield %>
     </div>
   </body>
