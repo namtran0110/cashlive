@@ -11,8 +11,13 @@ section.products {
 //theater
 .theater {
   background: $dark_gray;
+  text-align: center;
   #stream {
-    text-align: center;
+    position: relative; display: inline-block;
+    h2.sketch-only {
+      @include align(both);
+      color: white;
+    }
   }
   .fake-video {
     max-height: 75vh;
@@ -38,20 +43,40 @@ section.products {
       margin-right: 340px;
     }
   }
-  #chat,
-  #profile {
-    ;padding: 20px;
+  .tab-content {
+    height: 100%;
+    position: relative;
+    .nav-tabs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      .panel-toggle {
+        float: left; padding: 5px;
+        button { cursor: pointer;}
+      }
+    }
   }
-  .panel-toggle {
-    float: left; padding: 5px;
-    button { cursor: pointer;}
-  }
+}
+#chat,
+#profile {
+  padding: 20px;
+  padding-top: 62px;
 }
 
 //chat
-.chat {
-  position: relative;
+#chat {
+  height: 100%;
+  padding-bottom: 70px;
   .messages {
     max-height: 100%;
+    overflow: scroll;
+  }
+  .input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
   }
 }
