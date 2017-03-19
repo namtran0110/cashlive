@@ -1,25 +1,3 @@
-//vars
-$light_gray: #f8f8f8;
-$dark_gray: #333333;
-
-$header_height: 56px; /* potential changes and dynamic resizing */
-
-
-//global
-body {
-  overflow: hidden;
-}
-.app-container {
-  padding: 0;
-  margin-top: $header_height;
-  height: calc(100vh - #{$header_height});
-  position: relative;
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 //products
 section.products {
   padding: 20px;
@@ -33,8 +11,13 @@ section.products {
 //theater
 .theater {
   background: $dark_gray;
+  text-align: center;
   #stream {
-    text-align: center;
+    position: relative; display: inline-block;
+    h2.sketch-only {
+      @include align(both);
+      color: white;
+    }
   }
   .fake-video {
     max-height: 75vh;
@@ -60,20 +43,40 @@ section.products {
       margin-right: 340px;
     }
   }
-  #chat,
-  #profile {
-    ;padding: 20px;
+  .tab-content {
+    height: 100%;
+    position: relative;
+    .nav-tabs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      .panel-toggle {
+        float: left; padding: 5px;
+        button { cursor: pointer;}
+      }
+    }
   }
-  .panel-toggle {
-    float: left; padding: 5px;
-    button { cursor: pointer;}
-  }
+}
+#chat,
+#profile {
+  padding: 20px;
+  padding-top: 62px;
 }
 
 //chat
-.chat {
-  position: relative;
+#chat {
+  height: 100%;
+  padding-bottom: 70px;
   .messages {
     max-height: 100%;
+    overflow: scroll;
+  }
+  .input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
   }
 }
