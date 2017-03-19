@@ -2,10 +2,10 @@
 
 one:
   store: one
-  sender_id: 1
+  user: one
   body: MyString
 
 two:
   store: two
-  sender_id: 1
+  user: two
   body: MyString

@@ -1,5 +1,4 @@
 class Message < ApplicationRecord
   belongs_to :store
-
-  validates presence: true
+  belongs_to :user
 end
