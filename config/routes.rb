@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  mount ActionCable.server => '/cable'
+
   root "home#index"
 
   get '/dashboard' => 'dashboard#show', as: :dashboard
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :users, only: [:show, :create]
   resources :stores, only: [:show, :edit, :update]
 

@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+  $('#message-input').on 'keyup', (event) ->
+    if event.keyCode == 13
+      App.messages.createMessage body: $(this).val()
+      console.log 'submitting...'
+      $(this).val ''
+    return
+  return

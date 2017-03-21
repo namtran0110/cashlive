@@ -23,16 +23,11 @@
     <div id="chat" role="tabpanel" class="tab-pane fade show active">
       <div class="messages">
         <p><strong>Welcome to Chat</strong></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, error?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem obcaecati similique provident, quibusdam rem neque nobis quia veritatis sit nostrum, error vel eum voluptatem. Similique corrupti sint, necessitatibus delectus architecto!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore nemo distinctio voluptates sed amet eum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto debitis quisquam nostrum doloremque vero. Commodi sequi magni dicta laborum! Doloribus?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur.</p>
-        <p>Lorem ipsum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam.</p>
+        <%= render @messages %>
       </div>
       <div class="input">
-        <input type="text"></input>
+        <input type="text" name="message_input" id="message-input" value="" placeholder="Type to chat">
+        <button>Send</button>
       </div>
     </div>
 
