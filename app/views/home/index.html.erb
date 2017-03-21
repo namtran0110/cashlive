@@ -1,0 +1,19 @@
+<h2>Streaming Now:</h2>
+<ul>
+  <li>
+    <p>No stores are currently streaming</p>
+  </li>
+</ul>
+
+<h2>Popular stores:</h2>
+<% if @stores.count > 0 %>
+  <ul>
+    <% @stores.each do |store| %>
+      <li>
+        <p><%= store.slug %> <%= link_to "view store", store_path(store.slug), class: 'btn btn-secondary btn-small' %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  Sorry there are no stores
+<% end %>
