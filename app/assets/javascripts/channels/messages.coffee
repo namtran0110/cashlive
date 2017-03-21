@@ -10,7 +10,7 @@ App.messages = App.cable.subscriptions.create "MessagesChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     console.log 'App.messages :: received', data
-    $('.messages').append '<div class="message">' + data.message.body + "</div>"
+    $('.messages').append data.html
 
   createMessage: (data) ->
     @perform 'create_message', data
