@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    unless @user == current_user
-      redirect_to :back, :alert => "Access denied."
+    if @user == nil
+      render file: "#{Rails.root}/public/404.html", layout: false
     end
   end
 

@@ -1,4 +1,5 @@
 <h1>Wellcome to here !!! </h1>
 
-
+<% if @user.avatar != nil %>
 <%= image_tag @user.avatar.url(:original) %>
+<% end %>

@@ -1,5 +1,5 @@
 class SketchesController < ApplicationController
 
-  def stream
+  def store
   end
 end

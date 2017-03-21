@@ -7,7 +7,6 @@ section.products {
   }
 }
 
-
 //theater
 .theater {
   background: $dark_gray;
@@ -33,7 +32,6 @@ section.products {
 .panel {
   position: absolute;
   top: 0;
-  right: -300px;
   bottom: 0;
   width: 340px;
   border: 2px solid #83AF5D;
@@ -42,6 +40,12 @@ section.products {
     right: 0;
     & + #main {
       margin-right: 340px;
+    }
+  }
+  &.closed {
+    right: -300px;
+    & + #main {
+      margin-right: 40px;
     }
   }
   .tab-content {
