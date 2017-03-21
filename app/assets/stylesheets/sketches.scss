@@ -13,7 +13,8 @@ section.products {
   background: $dark_gray;
   text-align: center;
   #stream {
-    position: relative; display: inline-block;
+    position: relative; //css bug currently
+    display: inline-block;
     h2.sketch-only {
       @include align(both);
       color: white;
