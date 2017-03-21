@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  get '/dashboard' => 'dashboard#show', as: :dashboard
+
   devise_for :users
   resources :users, only: [:show, :create]
   resources :stores, only: [:show, :edit, :update]
