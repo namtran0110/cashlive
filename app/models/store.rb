@@ -3,6 +3,5 @@ class Store < ApplicationRecord
 
   has_many :messages, dependent: :destroy
 
-  validates :slug, presence: true, uniqueness: { message: "Username already in use" }
-
+  validates :name, presence: true, uniqueness: { message: "Username already in use" }
 end
