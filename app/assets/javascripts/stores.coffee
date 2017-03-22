@@ -6,7 +6,8 @@ $(document).on 'turbolinks:load', ->
         $('.messages').append('<div class="message alert alert-danger">You must log in to chat</div>')
         $(this).val ''
       else
-        App.messages.createMessage body: $(this).val()
+        bodytext = $(this).val().replace(/\r?\n|\r/g, "")
+        App.messages.createMessage body: bodytext
         $(this).val ''
     return
 

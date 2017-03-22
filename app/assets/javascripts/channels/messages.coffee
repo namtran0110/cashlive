@@ -16,4 +16,6 @@ window.setupStoreChat = (storeId) ->
       $('.messages').append data.body
 
     createMessage: (data) ->
-      @perform 'create_message', data
+      #console.log 'App.messages :: createMessage', data
+      if data.body.length > 0
+        @perform 'create_message', data
