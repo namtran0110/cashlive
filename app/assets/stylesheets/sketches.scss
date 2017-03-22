@@ -7,13 +7,13 @@ section.products {
   }
 }
 
-
 //theater
 .theater {
   background: $dark_gray;
   text-align: center;
   #stream {
-    position: relative; display: inline-block;
+    position: relative; //css bug currently
+    display: inline-block;
     h2.sketch-only {
       @include align(both);
       color: white;
@@ -32,7 +32,6 @@ section.products {
 .panel {
   position: absolute;
   top: 0;
-  right: -300px;
   bottom: 0;
   width: 340px;
   border: 2px solid #83AF5D;
@@ -41,6 +40,12 @@ section.products {
     right: 0;
     & + #main {
       margin-right: 340px;
+    }
+  }
+  &.closed {
+    right: -300px;
+    & + #main {
+      margin-right: 40px;
     }
   }
   .tab-content {
@@ -67,16 +72,30 @@ section.products {
 //chat
 #chat {
   height: 100%;
-  padding-bottom: 70px;
+  padding-bottom: 145px;
   .messages {
-    max-height: 100%;
+    height: 100%;
     overflow: scroll;
+    position: relative;
+    .alert {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
   }
-  .input {
+  .chat-input {
+    @include clearfix;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     padding: 20px;
+    textarea {
+      width: 100%;
+      resize: none;
+      padding: 6px;
+      font-size: 14px;
+    }
+    button { float: right; }
   }
 }
