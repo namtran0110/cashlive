@@ -21,7 +21,7 @@
     </ul>
 
     <div id="chat" role="tabpanel" class="tab-pane fade show active">
-      <div class="messages">
+      <div class="messages js-setup-store-chat" data-store-id="<%= @store.id %>">
         <p><strong>Welcome to Chat</strong></p>
         <%= render @messages %>
       </div>

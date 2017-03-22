@@ -5,4 +5,8 @@ $(document).on 'turbolinks:load', ->
       console.log 'submitting...'
       $(this).val ''
     return
+  $('.js-setup-store-chat').each ->
+    storeId = $(this).data('store-id')
+    window.setupStoreChat storeId
+    return
   return

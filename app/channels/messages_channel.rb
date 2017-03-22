@@ -1,6 +1,6 @@
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "store"
+    stream_from "store_#{params[:store_id]}"
   end
 
   def unsubscribed
@@ -11,7 +11,7 @@ class MessagesChannel < ApplicationCable::Channel
     Rails.logger.info("create message #{message_params.inspect}")
 
     @message = Message.new message_params.slice('body')
-    @message.store_id = 10
+    @message.store_id = params[:store_id]
     if current_user
       @message.user_id = current_user.id
     end
@@ -24,7 +24,7 @@ class MessagesChannel < ApplicationCable::Channel
       data[:html] = "Error: #{@message.errors.full_messages.to_sentence}"
     end
 
-    ActionCable.server.broadcast("store", data)
+    ActionCable.server.broadcast("store_#{params[:store_id]}", data)
   end
 
   def render_message(message)
