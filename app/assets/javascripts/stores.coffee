@@ -11,7 +11,6 @@ $(document).on 'turbolinks:load', ->
     return
 
   $('#message-send').on 'click', (event) ->
-    event.preventDefault()
     if $(this).closest('.chat-input').hasClass('no-user')
       $('.messages').append('<div class="message alert alert-danger">You must log in to chat</div>')
       $(this).prev('#message-input').focus().val ''
