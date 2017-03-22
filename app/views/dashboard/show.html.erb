@@ -16,7 +16,7 @@
   <ul>
     <% @stores.each do |store| %>
       <li>
-        <p><%= store.slug %> <%= link_to "view store", store_path(store.slug), class: 'btn btn-secondary btn-small' %></p>
+        <p><%= store.name %> <%= link_to "view store", store_path(store), class: 'btn btn-secondary btn-small' %></p>
       </li>
     <% end %>
   </ul>

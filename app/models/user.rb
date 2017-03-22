@@ -12,18 +12,18 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 
-  # Actions for Store on user creation / update
+  # Actions
   after_create :generate_empty_store
   after_update :update_store_slug
 
   private
 
     def generate_empty_store
-      Store.create!(user_id: self.id, slug: self.username.parameterize)
+      Store.create!(user_id: self.id, name: self.username)
     end
 
     def update_store_slug
-      self.store.update(slug: self.username.parameterize)
+      self.store.update(name: self.username)
     end
 
 end
