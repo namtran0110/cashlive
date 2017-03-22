@@ -25,7 +25,9 @@
         <p><strong>Welcome to Chat</strong></p>
         <%= render @messages %>
       </div>
-      <div class="chat-input">
+
+
+      <div class="chat-input<%= current_user ? '' : ' no-user' %>">
         <textarea rows="3" name="message_input" id="message-input" value="" placeholder="Type to chat"></textarea>
         <button>Send</button>
       </div>
