@@ -14,14 +14,7 @@ class MessagesChannel < ApplicationCable::Channel
     @message.store_id = params[:store_id]
     if current_user
       @message.user_id = current_user.id
-    end
-
-    data = {}
-
-    if @message.save
-      data[:html] = render_message(@message)
-    else
-      data[:html] = "Error: #{@message.errors.full_messages.to_sentence}"
+      data = {:body => render_message(@message)}
     end
 
     ActionCable.server.broadcast("store_#{params[:store_id]}", data)

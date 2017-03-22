@@ -12,8 +12,8 @@ window.setupStoreChat = (storeId) ->
 
     received: (data) ->
       # Called when there's incoming data on the websocket for this channel
-      console.log 'App.messages :: received', data
-      $('.messages').append data.html
+      #console.log 'App.messages :: received', data
+      $('.messages').append data.body
 
     createMessage: (data) ->
       @perform 'create_message', data
