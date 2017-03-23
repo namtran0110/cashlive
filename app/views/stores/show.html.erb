@@ -49,29 +49,20 @@
     <div id="stream">
       <%= image_tag 'http://i.imgur.com/WZ57Tw7.jpg', class: 'fake-video' %>
       <h2 class="sketch-only">Welcome to ../stores/<%= @store.name %>
-      <br>Store ID: <%= @store.id %></h2>
+        <br>Store ID: <%= @store.id %></h2>
     </div>
   </section>
   <section class="products">
     <h2>Products in this stream</h2>
     <hr>
-    <%= render @products %>
+    <div class="container row">
+        <%= render @products, class: 'col-md-6' %>
+    </div>
   </section>
   <section class="products">
     <h2>Other popular products by seller</h2>
     <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis numquam sapiente vitae voluptate obcaecati,
-      dolores iste, modi nobis illo deserunt officia asperiores deleniti. Et earum est quasi ea repudiandae aliquam
-      dolor dolorum, ullam quo, impedit quod deleniti iure modi, sit in sunt asperiores dolorem deserunt. Dicta nemo
-      non, fugit vitae.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis numquam sapiente vitae voluptate obcaecati,
-      dolores iste, modi nobis illo deserunt officia asperiores deleniti. Et earum est quasi ea repudiandae aliquam
-      dolor dolorum, ullam quo, impedit quod deleniti iure modi, sit in sunt asperiores dolorem deserunt. Dicta nemo
-      non, fugit vitae.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis numquam sapiente vitae voluptate obcaecati,
-      dolores iste, modi nobis illo deserunt officia asperiores deleniti. Et earum est quasi ea repudiandae aliquam
-      dolor dolorum, ullam quo, impedit quod deleniti iure modi, sit in sunt asperiores dolorem deserunt. Dicta nemo
-      non, fugit vitae.</p>
+
   </section>
 
 </div>
