@@ -1,3 +1,4 @@
 <div id="<%= dom_id(message) %>" class="message">
-  <span class="user" style="border: 1px solid ligtgray; font-weight: bold;"><%= message.user.username %> :</span> &nbsp;<%= message.body %>
+  <span class="user">
+  <%= message.user.username %> :</span> &nbsp;<%= message.body %>
 </div>

@@ -21,13 +21,15 @@
     </ul>
 
     <div id="chat" role="tabpanel" class="tab-pane fade show active">
-      <div class="messages">
+      <div class="messages js-setup-store-chat" data-store-id="<%= @store.id %>">
         <p><strong>Welcome to Chat</strong></p>
         <%= render @messages %>
       </div>
-      <div class="input">
-        <input type="text" name="message_input" id="message-input" value="" placeholder="Type to chat">
-        <button>Send</button>
+
+
+      <div class="chat-input<%= current_user ? '' : ' no-user' %>">
+        <textarea rows="3" name="message_input" id="message-input" value="" placeholder="Type to chat"></textarea>
+        <button id="message-send">Send</button>
       </div>
     </div>
 
@@ -46,8 +48,8 @@
   <section class="theater">
     <div id="stream">
       <%= image_tag 'http://i.imgur.com/WZ57Tw7.jpg', class: 'fake-video' %>
-      <h2 class="sketch-only">Welcome to ../stores/<%= @store.slug %>
-        <br>Store ID: <%= @store.id %></h2>
+      <h2 class="sketch-only">Welcome to ../stores/<%= @store.name %>
+      <br>Store ID: <%= @store.id %></h2>
     </div>
   </section>
   <section class="products">
