@@ -1,9 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    #1st you retrieve the post thanks to params[:post_id]
-    store = Store.friendly.find(params[:store_id])
-    #2nd you get all the comments of this post
+    store = current_user.store
     @oroducts = store.products
 
     respond_to do |format|
@@ -15,9 +13,7 @@ class ProductsController < ApplicationController
   # GET /posts/:post_id/comments/:id
   # GET /comments/:id.xml
   def show
-    #1st you retrieve the post thanks to params[:post_id]
-    store = Store.friendly.find(params[:store_id])
-    #2nd you retrieve the comment thanks to params[:id]
+    store = current_user.store
     @product = store.products.find(params[:id])
 
     respond_to do |format|
@@ -29,9 +25,7 @@ class ProductsController < ApplicationController
   # GET /posts/:post_id/comments/new
   # GET /posts/:post_id/comments/new.xml
   def new
-    #1st you retrieve the post thanks to params[:post_id]
-    store = Store.friendly.find(params[:store_id])
-    #2nd you build a new one
+    store = current_user.store
     @product = store.products.build
 
     respond_to do |format|
@@ -42,18 +36,14 @@ class ProductsController < ApplicationController
 
   # GET /posts/:post_id/comments/:id/edit
   def edit
-    #1st you retrieve the post thanks to params[:post_id]
-    store = Store.friendly.find(params[:store_id])
-    #2nd you retrieve the comment thanks to params[:id]
+    store = current_user.store
     @product = store.products.find(params[:id])
   end
 
   # POST /posts/:post_id/comments
   # POST /posts/:post_id/comments.xml
   def create
-    #1st you retrieve the post thanks to params[:post_id]
-    store = Store.friendly.find(params[:store_id])
-    #2nd you create the comment with arguments in params[:comment]
+    store = current_user.store
     @product = store.products.create(product_params)
 
     respond_to do |format|
@@ -73,8 +63,7 @@ class ProductsController < ApplicationController
   # PUT /posts/:post_id/comments/:id.xml
   def update
     #1st you retrieve the post thanks to params[:post_id]
-    store = Store.friendly.find(params[:store_id])
-    #2nd you retrieve the comment thanks to params[:id]
+    store = current_user.store
     @product = store.products.find(params[:id])
 
     respond_to do |format|
@@ -92,9 +81,7 @@ class ProductsController < ApplicationController
   # DELETE /posts/:post_id/comments/1
   # DELETE /posts/:post_id/comments/1.xml
   def destroy
-    #1st you retrieve the post thanks to params[:post_id]
-    store = Store.friendly.find(params[:store_id])
-    #2nd you retrieve the comment thanks to params[:id]
+    store = current_user.store
     @product = store.products.find(params[:id])
     @product.destroy
 
