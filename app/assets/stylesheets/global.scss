@@ -1,11 +1,13 @@
 //global
 body {
-  overflow: hidden;
+  &.stores-show {
+    overflow: hidden;
+  }
 }
 .app-container {
   padding: 0;
   margin-top: $header_height;
-  height: calc(100vh - #{$header_height});
+  min-height: calc(100vh - #{$header_height});
   position: relative;
 }
 img {
