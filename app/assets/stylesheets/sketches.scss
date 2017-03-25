@@ -77,6 +77,9 @@ section.products {
     height: 100%;
     overflow: scroll;
     position: relative;
+    .user {
+      font-weight: bold;
+    }
     .alert {
       position: absolute;
       bottom: 0;

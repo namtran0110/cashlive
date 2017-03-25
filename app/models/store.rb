@@ -1,8 +1,11 @@
 class Store < ApplicationRecord
+  has_many :products, dependent: :destroy
   belongs_to :user
-
   has_many :messages, dependent: :destroy
+  extend FriendlyId
+  friendly_id :name
 
-  validates :slug, presence: true, uniqueness: { message: "Username already in use" }
+  ratyrate_rateable "quality"
 
+  validates :name, presence: true, uniqueness: { message: "Username already in use" }
 end
