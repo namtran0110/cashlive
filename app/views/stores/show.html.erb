@@ -6,49 +6,7 @@
 <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
 
 <!-- PANEL -->
-<div class="panel open">
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-
-    <!-- tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-
-      <!-- toggle -->
-      <div class="panel-toggle">
-        <button>&times;</button>
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link active" href="#chat" role="tab" data-toggle="tab">Chat</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#profile" role="tab" data-toggle="tab">About Seller</a>
-      </li>
-    </ul>
-
-    <div id="chat" role="tabpanel" class="tab-pane fade show active">
-      <div class="messages js-setup-store-chat" data-store-id="<%= @store.id %>">
-        <p><strong>Welcome to Chat</strong></p>
-        <%= render @messages %>
-      </div>
-
-
-      <div class="chat-input<%= current_user ? '' : ' no-user' %>">
-        <textarea rows="3" name="message_input" id="message-input" value="" placeholder="Type to chat"></textarea>
-        <button id="message-send">Send</button>
-      </div>
-    </div>
-
-    <div id="profile" role="tabpanel" class="tab-pane fade">
-      <h4>About Seller</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis culpa libero eaque ipsam qui eveniet,
-        sapiente officiis in numquam atque.</p>
-    </div>
-
-  </div>
-</div>
-
+<%= render 'side_panel' %>
 
 <!-- MAIN -->
 <div id="main">
@@ -228,16 +186,8 @@
   </section>
   <section class="products">
     <h2>Other popular products by seller</h2>
-    <% if current_user %>
-      Quality: <%= rating_for @store, "quality", star: 10, disable_after_rate: false, cancel_place: 'right' %>
-    <% end %>
-    <% if @store.average("quality") != nil %>
-      Total score: <%= @store.average("quality").avg%>/<%= @store.rates("quality").count %>
-    <%end%>
-
-      </br>
-
     <hr>
+    <%= render @products, class: 'col-md-6' %>
 
   </section>
 

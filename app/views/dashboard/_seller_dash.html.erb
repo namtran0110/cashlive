@@ -1,0 +1,22 @@
+<div id="seller_dash" role="tabpanel" class="tab-pane fade">
+  <h2>Seller Dashboard</h2>
+
+  <ul>
+    <li>
+      <%= link_to 'View my store', store_path(current_user.store)  %>
+    </li>
+    <li>
+      <%= link_to 'Edit my store image, intro video, or information', store_path(current_user.store)  %>
+    </li>
+    <li>
+      <%= link_to 'Add a new product', new_store_product_path(current_user.store)  %>
+    </li>
+    <li>
+      <%= link_to 'Upload video snippets to use in streams', '#', class: "btn disabled"  %>
+    </li>
+    <li>
+      <%= link_to 'Start streaming', '#', class: "btn disabled" %>
+    </li>
+  </ul>
+
+</div>
