@@ -13,6 +13,9 @@
           <a class="nav-link" href="<%= dashboard_path %>">Dashboard</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="<%= store_path(current_user.store) %>">My Store</a>
+        </li>
+        <li class="nav-item">
           <%= link_to "Log Out", destroy_user_session_path, method: 'delete', class: 'nav-link' %>
         </li>
       </ul>

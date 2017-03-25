@@ -69,8 +69,12 @@ ActiveRecord::Schema.define(version: 20170326025018) do
     t.string   "name"
     t.integer  "price"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["store_id"], name: "index_products_on_store_id", using: :btree
   end
 
