@@ -229,10 +229,14 @@
   <section class="products">
     <h2>Other popular products by seller</h2>
     <% if current_user %>
-      Total score: <%= @store.average("quality").avg%>/<%= @store.rates("quality").count %>
-      </br>
       Quality: <%= rating_for @store, "quality", star: 10, disable_after_rate: false, cancel_place: 'right' %>
     <% end %>
+    <% if @store.average("quality") != nil %>
+      Total score: <%= @store.average("quality").avg%>/<%= @store.rates("quality").count %>
+    <%end%>
+
+      </br>
+
     <hr>
 
   </section>
