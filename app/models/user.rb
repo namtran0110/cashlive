@@ -19,6 +19,9 @@ class User < ApplicationRecord
   has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
   has_many :following, through: :following_relationships, source: :following
 
+  # Config ratyrate for rating
+  ratyrate_rater
+
   # Actions
   after_create :generate_empty_store
   after_update :update_store_slug

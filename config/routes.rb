@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   mount ActionCable.server => '/cable'
 
   root "home#index"
