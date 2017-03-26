@@ -14,13 +14,15 @@ section.products {
   #stream {
     position: relative; //css bug currently
     display: inline-block;
+    width: 100%;
     h2.sketch-only {
       @include align(both);
       color: white;
     }
   }
+  video,
   .fake-video {
-    max-height: 75vh;
+    max-height: 80vh;
   }
 }
 

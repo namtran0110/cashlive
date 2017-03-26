@@ -1,0 +1,36 @@
+<div id="seller_dash" role="tabpanel" class="tab-pane fade">
+  <h2>Seller Dashboard</h2>
+
+  <ul>
+    <li>
+      <%= link_to 'View my store', store_path(current_user.store)  %>
+    </li>
+    <li>
+      <%= link_to 'Edit my store image, intro video, or information', store_path(current_user.store)  %>
+    </li>
+    <li>
+      <%= link_to 'Add a new product', new_store_product_path(current_user.store)  %>
+    </li>
+    <li>
+      <%= link_to 'Upload video snippets to use in streams', '#', class: "btn disabled"  %>
+    </li>
+  </ul>
+
+  <h4>Start Streaming:</h4>
+
+  <%= form_tag("/stores/#{current_user.store.name}") do %>
+    <div class="form-inline">
+      <% # we want to keep existing params %>
+
+        <%= hidden_field_tag :streaming_now, true %>
+
+
+      <% #and take new params as well %>
+      <label>Stream name:</label>
+      <%= text_field_tag :stream_name %>
+
+      <%= submit_tag "Start Streaming", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+</div>
