@@ -59,6 +59,11 @@
   </section>
   <section class="products">
     <h2>Other popular products by seller</h2>
+    <% if current_user %>
+      Total score: <%= @store.average("quality").avg%>/<%= @store.rates("quality").count %>
+      </br>
+      Quality: <%= rating_for @store, "quality", star: 10, disable_after_rate: false, cancel_place: 'right' %>
+    <% end %>
     <hr>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis numquam sapiente vitae voluptate obcaecati,
       dolores iste, modi nobis illo deserunt officia asperiores deleniti. Et earum est quasi ea repudiandae aliquam
