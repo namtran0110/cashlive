@@ -7,6 +7,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <script src="https://cdn.webrtc-experiment.com/firebase.js"> </script> <!-- Signaling -->
+    <script src="https://cdn.webrtc-experiment.com/RTCPeerConnection-v1.5.js"> </script> <!-- WebRTC simple wrapper -->
+    <script src="https://cdn.webrtc-experiment.com/webrtc-broadcasting/broadcast.js"> </script> <!-- Multi-user connectivity handler -->
+
+    <!-- This Library is used to detect WebRTC features -->
+    <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"></script>
+
   </head>
   <body class="<%= body_class %>">
     <%= render 'shared/navbar' %>

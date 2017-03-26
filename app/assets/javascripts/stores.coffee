@@ -1,5 +1,8 @@
 $(document).on 'turbolinks:load', ->
 
+  # click setup broadcast button on load
+  $('#setup-new-broadcast').click()
+
   $('#message-input').on 'keyup', (event) ->
     if event.keyCode == 13
       if $(this).closest('.chat-input').hasClass('no-user')
