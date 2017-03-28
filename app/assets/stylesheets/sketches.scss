@@ -19,6 +19,12 @@ section.products {
       @include align(both);
       color: white;
     }
+    #kill {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 2;
+    }
   }
   video,
   .fake-video {
