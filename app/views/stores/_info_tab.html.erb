@@ -1,10 +1,12 @@
-<div id="profile" role="tabpanel" class="tab-pane fade">
+<div id="profile" role="tabpanel" class="tab-pane fade <%= (@streamer_view || @store.streaming_now == true) ? '' : 'show active' %>">
 
   <!-- Store Image -->
-  <div>{{STORE IMAGE HERE}}</div>
+  <div>
+    <%= image_tag @store.user.avatar.url(:medium) %>
+  </div>
 
   <!-- Ratings -->
-  <% if current_user && (@store.id != current_user.store.id) %>
+  <% if current_user %>
     Quality: <%= rating_for @store, "quality", star: 10, disable_after_rate: false, cancel_place: 'right' %>
   <% end %>
   <% if @store.average("quality") != nil %>
@@ -12,7 +14,18 @@
   <%end%>
   <hr>
 
+  <!-- Basic Info -->
   <h4>About Seller</h4>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis culpa libero eaque ipsam qui eveniet,
     sapiente officiis in numquam atque.</p>
+
+
+  <!-- SUBSCRIBE / UNSUBSCRIBE LINKS -->
+  <% if current_user && current_user.id != @store.user.id %>
+    <% if current_user_is_following(current_user.id, @store.user.id)%>
+      <%= link_to "Unsubscribe", unfollow_user_path(@store.user.username), class: 'btn btn-primary'%>
+    <% else %>
+      <%= link_to "Subscribe", follow_user_path(@store.user.username), class: 'btn btn-primary'%>
+    <% end %>
+  <% end %>
 </div>

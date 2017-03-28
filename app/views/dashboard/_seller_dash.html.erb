@@ -14,9 +14,23 @@
     <li>
       <%= link_to 'Upload video snippets to use in streams', '#', class: "btn disabled"  %>
     </li>
-    <li>
-      <%= link_to 'Start streaming', '#', class: "btn disabled" %>
-    </li>
   </ul>
+
+  <h4>Start Streaming:</h4>
+
+  <%= form_tag("/stores/#{current_user.store.name}") do %>
+    <div class="form-inline">
+      <% # we want to keep existing params %>
+
+        <%= hidden_field_tag :streaming_now, true %>
+
+
+      <% #and take new params as well %>
+      <label>Stream name:</label>
+      <%= text_field_tag :stream_name %>
+
+      <%= submit_tag "Start Streaming", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 
 </div>

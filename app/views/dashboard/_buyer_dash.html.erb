@@ -5,31 +5,36 @@
   <p>This is like the homepage for a logged in user. It will display popular current streams, a list of subscribed channels, and maybe other things</p>
   <p>It will also have a link for "seller dashboard", which could be a tab or a separate page</p>
 
-  <h2>Popular Stores Streaming Now:</h2>
-  <ul>
-    <li>
-      <p>No stores are currently streaming</p>
-    </li>
-    <li>
-      <p>{{need to be able to get a list of stores currently streaming}}</p>
-    </li>
-  </ul>
-
-  <h2>Stores I subscribe to:</h2>
-  <ul>
-    <li>
-      <p>{{Tho to configure this list}}</p>
-    </li>
-  </ul>
-
-  <h2>Other Popular stores:</h2>
-  <% if @stores.count > 0 %>
+  <h2>Stores streaming now:</h2>
+  <% if @streaming_stores.count > 0 %>
     <ul>
-      <% @stores.each do |store| %>
-        <li>
-          <p><%= store.name %> <%= link_to "view store", store_path(store), class: 'btn btn-secondary btn-small' %></p>
-        </li>
+      <% @streaming_stores.each do |store| %>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
       <% end %>
     </ul>
+  <% else %>
+    <p>No stores are currently streaming</p>
+  <% end %>
+
+  <h2>Stores I subscribe to:</h2>
+  <% if @subscribed_stores.count > 0 %>
+    <ul>
+      <% @subscribed_stores.each do |store| %>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>You aren't currently subscribed to any stores</p>
+  <% end %>
+
+  <h2>Other Popular stores:</h2>
+  <% if @other_stores.count > 0 %>
+    <ul>
+      <% @other_stores.each do |store| %>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>All stores have already been listed above!</p>
   <% end %>
 </div>
