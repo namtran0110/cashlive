@@ -12,10 +12,10 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link active" href="#chat" role="tab" data-toggle="tab">Chat</a>
+        <a class="nav-link <%= (@streamer_view == true || @store.streaming_now == true) ? 'active' : '' %>" href="#chat" role="tab" data-toggle="tab">Chat</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#profile" role="tab" data-toggle="tab">About Seller</a>
+        <a class="nav-link <%= (@streamer_view == true || @store.streaming_now == true) ? '' : 'active' %>" href="#profile" role="tab" data-toggle="tab">About Seller</a>
       </li>
     </ul>
 
