@@ -21,11 +21,11 @@
 
 
   <!-- SUBSCRIBE / UNSUBSCRIBE LINKS -->
-  <% if current_user %>
+  <% if current_user && current_user.id != @store.user.id %>
     <% if current_user_is_following(current_user.id, @store.user.id)%>
-      <%= link_to "Subscribe", unfollow_user_path(@store.user.username), class: 'btn btn-primary'%>
+      <%= link_to "Unsubscribe", unfollow_user_path(@store.user.username), class: 'btn btn-primary'%>
     <% else %>
-      <%= link_to "Unsubscribe", follow_user_path(@store.user.username), class: 'btn btn-primary'%>
+      <%= link_to "Subscribe", follow_user_path(@store.user.username), class: 'btn btn-primary'%>
     <% end %>
   <% end %>
 </div>

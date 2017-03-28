@@ -3,6 +3,12 @@ $(document).on 'turbolinks:load', ->
   # click setup broadcast button on load
   $('#setup-new-broadcast').click()
 
+  # close button function
+  $('#kill').on 'click', ->
+    alert 'end stream still needs configuration'
+    return
+
+  #send message on pressing enter
   $('#message-input').on 'keyup', (event) ->
     if event.keyCode == 13
       if $(this).closest('.chat-input').hasClass('no-user')
@@ -14,6 +20,7 @@ $(document).on 'turbolinks:load', ->
         $(this).val ''
     return
 
+  #send message on clicking send button
   $('#message-send').on 'click', (event) ->
     if $(this).closest('.chat-input').hasClass('no-user')
       $('.messages').append('<div class="message alert alert-danger">You must log in to chat</div>')

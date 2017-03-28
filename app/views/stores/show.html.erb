@@ -4,10 +4,15 @@
 <!-- MAIN -->
 <div id="main">
   <section class="theater">
-    <% if @streamer_view %>
-      <button id="kill" class="btn btn-danger">End Stream</button>
-    <% end %>
+
     <div id="stream">
+
+      <!-- Kill Button -->
+      <% if @streamer_view %>
+        <button id="kill" class="btn btn-danger">End Stream</button>
+      <% end %>
+
+
       <article>
         <!-- copy this <section> and next <script> -->
         <section class="experiment">
