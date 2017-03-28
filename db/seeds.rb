@@ -13,17 +13,24 @@ User.create email: "xyz@gmail.com", password: "123456", username: "xyz"
 
 # Begin Demo-Ready Seed Data
 puts "generating users..."
-user01 = User.new email: "armyofbees@example.com", password: "secret", username: "ArmyOfBees"
-user02 = User.new email: "tlock@example.com", password: "secret", username: "TLock"
-user03 = User.new email: "superstore@example.com", password: "secret", username: "SuperStore"
+user01 = User.new password: "secret", email: "armyofbees@example.com", username: "ArmyOfBees", avatar: File.new('seed_images/armyofbees.png')
+user02 = User.new password: "secret", email: "tlock@example.com", username: "TLock", avatar: File.new('seed_images/tlock.jpg')
+user03 = User.new password: "secret", email: "superstore@example.com", username: "SuperStore", avatar: File.new('seed_images/superstore.jpg')
+
+sleep 1
 puts "saving users to database..."
 user01.save
 user02.save
 user03.save
-puts "users saved"
 
 sleep 1
-puts "product creation underway..."
+puts "linking subscriptions..."
+Follow.create following_id: user02.id, follower_id: user01.id
+Follow.create following_id: user03.id, follower_id: user02.id
+Follow.create following_id: user01.id, follower_id: user03.id
+
+sleep 1
+puts "generating products..."
 Product.create store_id: user01.store.id, name: "Guitar", price: 1000000, image: File.new('seed_images/guitar.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde laboriosam dignissimos placeat, voluptate temporibus omnis recusandae nam autem saepe officiis!"
 Product.create store_id: user01.store.id, name: "Keyboard", price: 1200000, image: File.new('seed_images/keyboard.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, excepturi!"
 Product.create store_id: user01.store.id, name: "Ukelele", price: 900000, image: File.new('seed_images/ukelele.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum asperiores nemo veritatis at, eos iure."
@@ -36,5 +43,7 @@ Product.create store_id: user03.store.id, name: "Xoai", price: 15000, image: Fil
 Product.create store_id: user03.store.id, name: "Dau", price: 10000, image: File.new('seed_images/dau.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, excepturi!"
 Product.create store_id: user03.store.id, name: "Viet Quat", price: 10000, image: File.new('seed_images/vietquat.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum asperiores nemo veritatis at, eos iure."
 Product.create store_id: user03.store.id, name: "Dua", price: 20000, image: File.new('seed_images/dua.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum asperiores nemo veritatis at, eos iure."
+
 sleep 1
-puts "seeding complete"
+puts " ======= SUCCESS ========"
+puts " === Seeding Complete ==="

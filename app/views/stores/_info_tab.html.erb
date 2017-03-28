@@ -1,7 +1,9 @@
 <div id="profile" role="tabpanel" class="tab-pane fade">
 
   <!-- Store Image -->
-  <div>{{STORE IMAGE HERE}}</div>
+  <div>
+    <%= image_tag @store.user.avatar.url(:medium) %>
+  </div>
 
   <!-- Ratings -->
   <% if current_user && (@store.id != current_user.store.id) %>
