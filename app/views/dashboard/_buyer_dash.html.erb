@@ -9,9 +9,7 @@
   <% if @streaming_stores.count > 0 %>
     <ul>
       <% @streaming_stores.each do |store| %>
-        <li>
-          <p><%= store.name %> <%= link_to "view store", store_path(store), class: 'btn btn-secondary btn-small' %></p>
-        </li>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
       <% end %>
     </ul>
   <% else %>
@@ -22,9 +20,7 @@
   <% if @subscribed_stores.count > 0 %>
     <ul>
       <% @subscribed_stores.each do |store| %>
-        <li>
-          <p><%= store.name %> <%= link_to "view store", store_path(store), class: 'btn btn-secondary btn-small' %></p>
-        </li>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
       <% end %>
     </ul>
   <% else %>
@@ -35,9 +31,7 @@
   <% if @other_stores.count > 0 %>
     <ul>
       <% @other_stores.each do |store| %>
-        <li>
-          <p><%= store.name %> <%= link_to "view store", store_path(store), class: 'btn btn-secondary btn-small' %></p>
-        </li>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
       <% end %>
     </ul>
   <% else %>
