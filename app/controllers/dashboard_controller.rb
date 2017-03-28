@@ -5,7 +5,10 @@ class DashboardController < ApplicationController
       redirect_to user_session_path
     else
       @user = current_user
-      @stores = Store.where.not(user_id: @user.id)
+
+      non_empty_stores = Store.joins(:products).group('stores.id')
+
+      @stores = non_empty_stores.where.not(user_id: @user.id)
       @streaming_stores = Store.where.not(user_id: @user.id, streaming_now: false)
 
       my_follows = Follow.where(follower_id: @user.id)
