@@ -7,6 +7,16 @@ class DashboardController < ApplicationController
       @user = current_user
       @stores = Store.where.not(user_id: @user.id)
       @streaming_stores = Store.where.not(user_id: @user.id, streaming_now: false)
+
+      my_follows = Follow.where(follower_id: @user.id)
+      my_followed_users = User.find(my_follows.map(&:following_id))
+      @subscribed_stores = []
+      my_followed_users.each do |user|
+        @subscribed_stores.push(user.store)
+      end
+
+      #other stores which are not in the first two lists
+      @other_stores = @stores - (@subscribed_stores + @streaming_stores)
     end
   end
 end
