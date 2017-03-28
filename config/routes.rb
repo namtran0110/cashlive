@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   resources :stores, only: [:show, :edit, :update] do
     resources :products
   end
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+
+  devise_for :users, controllers: { sessions: 'users/sessions', omniauth_callbacks: "user/omniauth_callbacks" }
 
   resources :users, only: [:create]
   get ':username' =>  'users#show'
