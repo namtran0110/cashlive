@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
     else
       @user = current_user
       @stores = Store.where.not(user_id: @user.id)
+      @streaming_stores = Store.where.not(user_id: @user.id, streaming_now: false)
     end
   end
 end

@@ -4,6 +4,7 @@ class HomeController < ApplicationController
       redirect_to dashboard_path
     else
       @stores = Store.all
+      @streaming_stores = Store.where(streaming_now: true)
     end
   end
 end
