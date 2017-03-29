@@ -19,17 +19,23 @@
   <h4>Start Streaming:</h4>
 
   <%= form_tag("/stores/#{current_user.store.name}") do %>
-    <div class="form-inline">
+    <div class="form">
       <% # we want to keep existing params %>
 
         <%= hidden_field_tag :streaming_now, true %>
 
 
       <% #and take new params as well %>
-      <label>Stream name:</label>
-      <%= text_field_tag :stream_name %>
+      <div class="form-group">
+        <label>Stream name:</label>
+        <%= text_field_tag :stream_name %>
+      </div>
 
-      <%= submit_tag "Start Streaming", class: 'btn btn-primary' %>
+      <div class="form-group"> {{ PRODUCT MULTI-SELECT HERE}} </div>
+
+      <div class="form-group">
+        <%= submit_tag "Start Streaming", class: 'btn btn-primary' %>
+      </div>
     </div>
   <% end %>
 
