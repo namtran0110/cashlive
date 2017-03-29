@@ -78,7 +78,9 @@
     }
 
     function killButtonClickHandler () {
-        broadcastUI.remove()
+        broadcastingOption.remove();
+        videosContainer.remove();
+
     }
     function captureUserMedia(callback) {
         var constraints = null;
