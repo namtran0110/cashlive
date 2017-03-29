@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326025018) do
+ActiveRecord::Schema.define(version: 20170329003222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,8 +69,12 @@ ActiveRecord::Schema.define(version: 20170326025018) do
     t.string   "name"
     t.integer  "price"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["store_id"], name: "index_products_on_store_id", using: :btree
   end
 
@@ -99,10 +103,20 @@ ActiveRecord::Schema.define(version: 20170326025018) do
 
   create_table "stores", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "name"
+    t.boolean  "streaming_now", default: false
     t.index ["user_id"], name: "index_stores_on_user_id", using: :btree
+  end
+
+  create_table "stream_instances", force: :cascade do |t|
+    t.integer  "store_id"
+    t.string   "title"
+    t.integer  "product_ids", default: [],              array: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["store_id"], name: "index_stream_instances_on_store_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -133,4 +147,5 @@ ActiveRecord::Schema.define(version: 20170326025018) do
   add_foreign_key "messages", "users"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "users", on_delete: :cascade
+  add_foreign_key "stream_instances", "stores"
 end
