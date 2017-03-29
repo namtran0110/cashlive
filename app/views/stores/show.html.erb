@@ -15,7 +15,6 @@
           <button id="kill" class="btn btn-danger">End Stream</button>
       <% end %>
 
-
       <article>
         <!-- copy this <section> and next <script> -->
         <section class="experiment">
@@ -41,31 +40,27 @@
   </section>
 
   <% if @store.streaming_now == true %>
-      <section class="products">
-        <h2>Products in this stream</h2>
-        <p>{{ STILL NEEDS TO BE CONFIGURED PROPERLY }}
-        <hr>
-        <div class="container row">
-          <%= render @products, class: 'col-md-6' %>
-        </div>
-      </section>
-
-      <section class="products">
-        <h2>Other popular products by seller</h2>
-
-  <% else %>
-
-      <section class="products">
-        <h2>Products:</h2>
-
+    <section class="products">
+      <h2>Products in this stream</h2>
+      <p>{{ STILL NEEDS TO BE CONFIGURED PROPERLY }}
+      <hr>
+      <div class="container row">
+        <%= render @products, class: 'col-md-6' %>
+      </div>
+    </section>
   <% end %>
 
-  <hr>
-  <div class="container row">
-    <%= render @products, class: 'col-md-6' %>
-  </div>
-  </section>
+  <section class="products">
+    
+    <% if @store.streaming_now == true %>
+      <h2>Other popular products by seller</h2>
+    <% else %>
+      <h2>Products:</h2>
+    <% end %>
+
+    <hr>
+    <div class="container row">
+      <%= render @products, class: 'col-md-6' %>
+    </div>
   </section>
 </div>
-</div>
-<script src="https://cdn.webrtc-experiment.com/commits.js" async></script>
