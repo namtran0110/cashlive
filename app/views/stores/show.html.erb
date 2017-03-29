@@ -15,7 +15,6 @@
           <button id="kill" class="btn btn-danger">End Stream</button>
       <% end %>
 
-
       <article>
         <!-- copy this <section> and next <script> -->
         <section class="experiment">
@@ -52,7 +51,7 @@
   <% end %>
 
   <section class="products">
-
+    
     <% if @store.streaming_now == true %>
       <h2>Other popular products by seller</h2>
     <% else %>
@@ -64,5 +63,4 @@
       <%= render @products, class: 'col-md-6' %>
     </div>
   </section>
-
 </div>
