@@ -5,7 +5,7 @@ $(document).on 'turbolinks:load', ->
 
   # close button function
   $('#kill').on 'click', ->
-    alert 'end stream still needs configuration'
+    console.log 'end stream still needs configuration'
     return
 
   #send message on pressing enter
