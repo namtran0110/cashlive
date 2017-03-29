@@ -2,12 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     store = current_user.store
-    @oroducts = store.products
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @products }
-    end
+    @products = store.products
   end
 
   # GET /posts/:post_id/comments/:id
