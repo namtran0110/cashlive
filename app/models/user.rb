@@ -37,7 +37,8 @@ class User < ApplicationRecord
   private
 
     def generate_empty_store
-      Store.create!(user_id: self.id, name: self.username)
+      store = Store.create!(user_id: self.id, name: self.username)
+      StreamInstance.create!(store_id: store.id)
     end
 
     def update_store_slug

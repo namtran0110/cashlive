@@ -13,13 +13,20 @@ class StoresController < ApplicationController
   end
 
   def start_stream
-    @store.update(streaming_now: true)
     @streamer_view = true
     @stream_name = params[:stream_name]
+    @store.update(streaming_now: true)
+    clean_stream_instance
+    @store.stream_instance.update(title: @stream_name, product_ids: [])
   end
 
   def end_stream
-    Store.update(streaming_now: false)
+    #Store.update(streaming_now: false)
+    #clean_stream_instance
+  end
+
+  def clean_stream_instance
+    @store.stream_instance.update(title: nil, product_ids: [])
   end
 
 end
