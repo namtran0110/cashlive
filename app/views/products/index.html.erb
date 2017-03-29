@@ -1,4 +1,6 @@
-<%= @product.name %>
-<%= @product.description %>
-<%= @product.image %>
-<%= @product.price %>
+<% @products.each do |p| %>
+    <%= p.name %>
+    <%= p.description %>
+    <%= p.image %>
+    <%= p.price %>
+<% end %>

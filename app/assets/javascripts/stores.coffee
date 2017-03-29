@@ -3,11 +3,6 @@ $(document).on 'turbolinks:load', ->
   # click setup broadcast button on load
   $('#setup-new-broadcast').click()
 
-  # close button function
-  $('#kill').on 'click', ->
-    console.log 'end stream still needs configuration'
-    return
-
   #send message on pressing enter
   $('#message-input').on 'keyup', (event) ->
     if event.keyCode == 13

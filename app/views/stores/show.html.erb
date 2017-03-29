@@ -4,7 +4,7 @@
 <!-- MAIN -->
 <div id="main">
   <% if @store.streaming_now == true %>
-      <h2><%= @store.user.username %> streaming live: "<%= @store.stream_instance.title %>"</h2>
+      <h2><%= @store.user.username %> is live: <%= @store.stream_instance.title %></h2>
   <% end %>
   <section class="theater">
 
@@ -61,10 +61,11 @@
   <% end %>
 
   <hr>
-  <%= render @products, class: 'col-md-6' %>
+  <div class="container row">
+    <%= render @products, class: 'col-md-6' %>
+  </div>
   </section>
   </section>
 </div>
 
-</div>
 <script src="https://cdn.webrtc-experiment.com/commits.js" async></script>
