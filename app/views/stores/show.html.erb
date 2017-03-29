@@ -4,7 +4,7 @@
 <!-- MAIN -->
 <div id="main">
   <% if @store.streaming_now == true %>
-      <h2><%= @store.user.username %> streaming live: "<%= @store.stream_instance.title %>"</h2>
+      <h2><%= @store.user.username %> is live: <%= @store.stream_instance.title %></h2>
   <% end %>
   <section class="theater">
 
