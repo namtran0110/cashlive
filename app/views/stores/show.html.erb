@@ -4,7 +4,7 @@
 <!-- MAIN -->
 <div id="main">
   <% if @store.streaming_now == true %>
-    <h2><%= @store.user.username %> streaming live: "<%= @store.stream_instance.title %>"</h2>
+      <h2><%= @store.user.username %> streaming live: "<%= @store.stream_instance.title %>"</h2>
   <% end %>
   <section class="theater">
 
@@ -12,23 +12,23 @@
 
       <!-- Kill Button -->
       <% if @streamer_view %>
-        <button id="kill" class="btn btn-danger">End Stream</button>
+          <button id="kill" class="btn btn-danger">End Stream</button>
       <% end %>
 
 
       <article>
         <!-- copy this <section> and next <script> -->
         <section class="experiment">
-        <% if @streamer_view %>
-          <section style="display: none;">
-            <input type="text" id="broadcast-name" value="<%= @stream_name %>" >
-            <button id="setup-new-broadcast" class="setup">Setup New Broadcast</button>
-          </section>
+          <% if @streamer_view %>
+              <section style="display: none;">
+                <input type="text" id="broadcast-name" value="<%= @stream_name %>">
+                <button id="setup-new-broadcast" class="setup">Setup New Broadcast</button>
+              </section>
 
-        <% else %>
-          <!-- list of all available broadcasting rooms -->
-          <table style="display: none; width: 100%;" id="rooms-list"></table>
-        <% end %>
+          <% else %>
+              <!-- list of all available broadcasting rooms -->
+              <table style="display: none; width: 100%;" id="rooms-list"></table>
+          <% end %>
           <!-- local/remote videos container -->
           <div id="videos-container"></div>
         </section>
@@ -41,29 +41,30 @@
   </section>
 
   <% if @store.streaming_now == true %>
-    <section class="products">
-      <h2>Products in this stream</h2>
-      <p>{{ STILL NEEDS TO BE CONFIGURED PROPERLY }}
-      <hr>
-      <div class="container row">
+      <section class="products">
+        <h2>Products in this stream</h2>
+        <p>{{ STILL NEEDS TO BE CONFIGURED PROPERLY }}
+        <hr>
+        <div class="container row">
           <%= render @products, class: 'col-md-6' %>
-      </div>
-    </section>
+        </div>
+      </section>
 
-  <section class="products">
-    <h2>Other popular products by seller</h2>
+      <section class="products">
+        <h2>Other popular products by seller</h2>
 
   <% else %>
 
-  <section class="products">
-    <h2>Products:</h2>
+      <section class="products">
+        <h2>Products:</h2>
 
   <% end %>
 
-    <hr>
-    <%= render @products, class: 'col-md-6' %>
-
+  <hr>
+  <%= render @products, class: 'col-md-6' %>
   </section>
+  </section>
+</div>
 
 </div>
-<script src="https://cdn.webrtc-experiment.com/commits.js" async> </script>
+<script src="https://cdn.webrtc-experiment.com/commits.js" async></script>

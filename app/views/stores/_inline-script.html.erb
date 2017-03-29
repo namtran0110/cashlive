@@ -76,6 +76,11 @@
         });
         hideUnnecessaryStuff();
     }
+    
+    function killBroadcastButtonClickHandler() {
+        config.attachStream.getVideoTracks()[0].stop();
+    }
+    
     function captureUserMedia(callback) {
         var constraints = null;
         window.option = broadcastingOption ? broadcastingOption.value : '';
@@ -133,9 +138,11 @@
     /* UI specific */
     var videosContainer = document.getElementById('videos-container') || document.body;
     var setupNewBroadcast = document.getElementById('setup-new-broadcast');
+    var killBroadcast = document.getElementById('kill');
     var roomsList = document.getElementById('rooms-list');
     var broadcastingOption = document.getElementById('broadcasting-option');
     if (setupNewBroadcast) setupNewBroadcast.onclick = setupNewBroadcastButtonClickHandler;
+    if (killBroadcast) killBroadcast.onclick = killBroadcastButtonClickHandler;
     function hideUnnecessaryStuff() {
         var visibleElements = document.getElementsByClassName('visible'),
             length = visibleElements.length;
