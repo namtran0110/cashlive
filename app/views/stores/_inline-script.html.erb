@@ -79,6 +79,7 @@
     
     function killBroadcastButtonClickHandler() {
         config.attachStream.getVideoTracks()[0].stop();
+        config.attachStream.getAudioTracks()[0].stop();
     }
 
     function captureUserMedia(callback) {
