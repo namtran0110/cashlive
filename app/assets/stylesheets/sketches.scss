@@ -114,10 +114,24 @@ section.products {
 
 //gradient
 #gradient {
-  position: fixed;
-  top: 0;
+  position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
   z-index: -1;
+  //full version
+    top: 0;
+    bottom: 0;
+
+  //line version
+    // @include align(vertical);
+    // top: 35%;
+    // left: 0;
+    // right: 0;
+    // height: 15px;
 }
+
+//coverflow
+  .flipster--coverflow .flipster__container {
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
