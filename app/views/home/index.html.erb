@@ -1,27 +1,28 @@
-<br>
-<h1>Home Page</h1>
+<div id="gradient"></div>
+  <br>
+  <h1>Home Page</h1>
 
-<p>This is the home page, it shows popular streams and stores and is the landing page for anyone who is not logged in</p>
-<p>If a user is logged in, the controller will redirect them to "/dashboard", which is the real home page for lugged in users!</p>
+  <p>This is the home page, it shows popular streams and stores and is the landing page for anyone who is not logged in</p>
+  <p>If a user is logged in, the controller will redirect them to "/dashboard", which is the real home page for lugged in users!</p>
 
-<h2>Stores streaming now:</h2>
-<% if @streaming_stores.count > 0 %>
-  <ul>
-    <% @streaming_stores.each do |store| %>
-      <%= render partial: 'stores/store_listing', locals: {store: store} %>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No stores are currently streaming</p>
-<% end %>
+  <h2>Stores streaming now:</h2>
+  <% if @streaming_stores.count > 0 %>
+    <ul>
+      <% @streaming_stores.each do |store| %>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No stores are currently streaming</p>
+  <% end %>
 
-<h2>Other Popular stores:</h2>
-<% if @other_stores.count > 0 %>
-  <ul>
-    <% @other_stores.each do |store| %>
-      <%= render partial: 'stores/store_listing', locals: {store: store} %>
-    <% end %>
-  </ul>
-<% else %>
-  <p>All stores have already been listed above!</p>
-<% end %>
+  <h2>Other Popular stores:</h2>
+  <% if @other_stores.count > 0 %>
+    <ul>
+      <% @other_stores.each do |store| %>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>All stores have already been listed above!</p>
+  <% end %>
