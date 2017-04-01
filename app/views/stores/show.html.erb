@@ -1,4 +1,5 @@
 <!-- PANEL -->
+<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
 <%= render 'side_panel' %>
 
 <!-- MAIN -->
@@ -12,7 +13,7 @@
 
       <!-- Kill Button -->
       <% if @streamer_view %>
-          <button id="kill" class="btn btn-danger">End Stream</button>
+          <button id="stop-recording" class="btn btn-danger">End Stream</button>
       <% end %>
 
       <article>
@@ -23,14 +24,15 @@
                 <input type="text" id="broadcast-name" value="<%= @stream_name %>">
                 <button id="setup-new-broadcast" class="setup">Setup New Broadcast</button>
               </section>
-
           <% else %>
               <!-- list of all available broadcasting rooms -->
-              <table style="display: none; width: 100%;" id="rooms-list"></table>
+              <table style="width: 100%;" id="rooms-list"></table>
           <% end %>
+
           <!-- local/remote videos container -->
           <div id="videos-container"></div>
         </section>
+
 
         <%= render 'inline-script' %>
 
@@ -40,22 +42,22 @@
   </section>
 
   <% if @store.streaming_now == true %>
-    <section class="products">
-      <h2>Products in this stream</h2>
-      <p>{{ STILL NEEDS TO BE CONFIGURED PROPERLY }}
-      <hr>
-      <div class="container row">
-        <%= render @products, class: 'col-md-6' %>
-      </div>
-    </section>
+      <section class="products">
+        <h2>Products in this stream</h2>
+        <p>{{ STILL NEEDS TO BE CONFIGURED PROPERLY }}
+        <hr>
+        <div class="container row">
+          <%= render @products, class: 'col-md-6' %>
+        </div>
+      </section>
   <% end %>
 
   <section class="products">
-    
+
     <% if @store.streaming_now == true %>
-      <h2>Other popular products by seller</h2>
+        <h2>Other popular products by seller</h2>
     <% else %>
-      <h2>Products:</h2>
+        <h2>Products:</h2>
     <% end %>
 
     <hr>
