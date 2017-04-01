@@ -1,14 +1,12 @@
 class ProductsController < ApplicationController
 
   def index
-    store = current_user.store
+    store = Store.friendly.find(params[:store_id])
     @products = store.products
   end
 
-  # GET /posts/:post_id/comments/:id
-  # GET /comments/:id.xml
   def show
-    store = current_user.store
+    store = Store.friendly.find(params[:store_id])
     @product = store.products.find(params[:id])
 
     respond_to do |format|
@@ -17,8 +15,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /posts/:post_id/comments/new
-  # GET /posts/:post_id/comments/new.xml
   def new
     store = current_user.store
     @product = store.products.build
