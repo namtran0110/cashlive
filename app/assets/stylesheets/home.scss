@@ -1,3 +1,30 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//hero
+.hero {
+  min-height: 250px;
+  background: black url('https://static.pexels.com/photos/34577/pexels-photo.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+//gradient
+#gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  //full version
+    top: 0;
+    bottom: 0;
+
+  //line version
+    // @include align(vertical);
+    // top: 35%;
+    // left: 0;
+    // right: 0;
+    // height: 15px;
+}
+
+//coverflow
+  .flipster--coverflow .flipster__container {
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }

@@ -2,7 +2,6 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="<%= root_path %>">Cash<strong>Live</strong></a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -29,14 +28,18 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= new_user_registration_path %>">Register</a>
         </li>
-        <li class="nav-item">
-					<%= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path %>
-        </li>
       </ul>
 
     <% end %>
 
-    <form class="form-inline my-2 my-lg-0">
+    <a class="navbar-brand mx-auto" href="<%= root_path %>">
+      Cash<strong>Live</strong>
+      <svg xmlns="http://www.w3.org/2000/svg">
+          <circle cx="5" cy="5" r="5" fill="red" />
+      </svg>
+    </a>
+
+    <form class="form-inline my-2 my-lg-0 ml-auto">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
