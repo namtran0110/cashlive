@@ -1,3 +1,20 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+  coverflow = $('#coverflow').flipster
+    itemContainer: 'ul'
+    itemSelector: 'li'
+    start: 'center'
+    fadeIn: 400
+    loop: true
+    spacing: -0.5
+    click: true
+    keyboard: true
+    scrollwheel: false
+    touch: true
+    nav: false
+    buttons: false
+    buttonPrev: 'Previous'
+    buttonNext: 'Next'
+    onItemSwitch: (currentItem, previousItem) ->
+      console.log currentItem
+      return
+  return
