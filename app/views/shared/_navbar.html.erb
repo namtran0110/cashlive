@@ -29,6 +29,9 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= new_user_registration_path %>">Register</a>
         </li>
+        <li class="nav-item">
+					<%= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path %>
+        </li>
       </ul>
 
     <% end %>
