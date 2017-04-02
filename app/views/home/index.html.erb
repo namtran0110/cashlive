@@ -18,37 +18,7 @@
           <% @streaming_stores.each do |store, i| %>
             <li
               data-store="<%= store.name %>"
-              <% if store.stream_instance.title.present? %>
-                data-stream="<%= store.stream_instance.title %>">
-              <% end %>
-              <%= image_tag store.user.avatar.url(:original) %>
-            </li>
-            <li
-              data-store="<%= store.name %>"
-              <% if store.stream_instance.title.present? %>
-                data-stream="<%= store.stream_instance.title %>">
-              <% end %>
-              <%= image_tag store.user.avatar.url(:original) %>
-            </li>
-            <li
-              data-store="<%= store.name %>"
-              <% if store.stream_instance.title.present? %>
-                data-stream="<%= store.stream_instance.title %>">
-              <% end %>
-              <%= image_tag store.user.avatar.url(:original) %>
-            </li>
-            <li
-              data-store="<%= store.name %>"
-              <% if store.stream_instance.title.present? %>
-                data-stream="<%= store.stream_instance.title %>">
-              <% end %>
-              <%= image_tag store.user.avatar.url(:original) %>
-            </li>
-            <li
-              data-store="<%= store.name %>"
-              <% if store.stream_instance.title.present? %>
-                data-stream="<%= store.stream_instance.title %>">
-              <% end %>
+              data-stream="<%= store.stream_instance.title %>">
               <%= image_tag store.user.avatar.url(:original) %>
             </li>
           <% end %>
