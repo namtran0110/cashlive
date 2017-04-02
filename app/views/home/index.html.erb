@@ -1,40 +1,68 @@
   <!-- <div class="hero"></div> -->
-
+<!--   <br>
   <br>
   <h2 class="text-center">Streaming Live Now:</h2>
-  <br>
-
+  <br> -->
+  <div class="wrapper">
     <div id="coverflow">
       <div id="gradient"></div>
+
+      <h4>
+        <small>Top stores:</small>
+        <br>
+        <span>Live<svg xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="5" fill="red"></svg></span>
+      </h4>
+
       <% if @streaming_stores.count > 0 %>
         <ul class="flip-items">
-          <% @streaming_stores.each do |store| %>
-            <li data-id="1">
+          <% @streaming_stores.each do |store, i| %>
+            <li
+              data-store="<%= store.name %>"
+              <% if store.stream_instance.title.present? %>
+                data-stream="<%= store.stream_instance.title %>">
+              <% end %>
               <%= image_tag store.user.avatar.url(:original) %>
-              <!-- <p class="text-center"><%= store.name %></p> -->
             </li>
-            <li data-id="2">
+            <li
+              data-store="<%= store.name %>"
+              <% if store.stream_instance.title.present? %>
+                data-stream="<%= store.stream_instance.title %>">
+              <% end %>
               <%= image_tag store.user.avatar.url(:original) %>
-              <!-- <p class="text-center"><%= store.name %></p> -->
             </li>
-            <li data-id="3">
+            <li
+              data-store="<%= store.name %>"
+              <% if store.stream_instance.title.present? %>
+                data-stream="<%= store.stream_instance.title %>">
+              <% end %>
               <%= image_tag store.user.avatar.url(:original) %>
-              <!-- <p class="text-center"><%= store.name %></p> -->
             </li>
-            <li data-id="4">
+            <li
+              data-store="<%= store.name %>"
+              <% if store.stream_instance.title.present? %>
+                data-stream="<%= store.stream_instance.title %>">
+              <% end %>
               <%= image_tag store.user.avatar.url(:original) %>
-              <!-- <p class="text-center"><%= store.name %></p> -->
             </li>
-            <li data-id="5">
+            <li
+              data-store="<%= store.name %>"
+              <% if store.stream_instance.title.present? %>
+                data-stream="<%= store.stream_instance.title %>">
+              <% end %>
               <%= image_tag store.user.avatar.url(:original) %>
-              <!-- <p class="text-center"><%= store.name %></p> -->
             </li>
           <% end %>
         </ul>
+
       <% else %>
         <p>No stores are currently streaming</p>
       <% end %>
     </div>
+
+    <div id="coverflow-panel">
+      <!-- dynamically populated -->
+    </div>
+  </div>
 
   <h2>Other Popular stores:</h2>
   <% if @other_stores.count > 0 %>
