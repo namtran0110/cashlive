@@ -12,6 +12,10 @@ class StoresController < ApplicationController
     end
   end
 
+  def edit
+    @store = Store.friendly.find(params[:id])
+  end
+
   def start_stream
     @streamer_view = true
     @stream_name = params[:stream_name]

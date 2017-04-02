@@ -5,15 +5,36 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+    <form class="navbar__search-form form-inline my-2 my-lg-0 mr-auto">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="navbar__search-button" type="submit">
+        <i class="icon-search"></i>
+      </button>
+    </form>
+
+    <a class="navbar-brand mx-auto" href="<%= root_path %>">
+      Cash<strong>Live</strong>
+      <svg xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="5" fill="red" /></svg>
+    </a>
+
     <% if current_user #logged in %>
 
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="<%= dashboard_path %>">Dashboard</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= store_path(current_user.store) %>">My Store</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link" id="myStoreDropdown" data-target="#" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Store <span class="dropdown-arrow">&#9660;</span></a>
+          <ul class="dropdown-menu" aria-labelledby="myStoreDropdown">
+            <li><%= link_to 'View', store_path(current_user.store), class: "dropdown-item" %></li>
+            <li><%= link_to 'Edit', edit_user_registration_path(current_user), class: "dropdown-item" %></li>
+            <li><%= link_to 'Add Product', new_store_product_path(current_user.store), class: "dropdown-item" %></li>
+            <li><%= link_to 'Start Streaming', '#', class: "dropdown-item" %></li>
+          </ul>
         </li>
+
+
         <li class="nav-item">
           <%= link_to "Log Out", destroy_user_session_path, method: 'delete', class: 'nav-link' %>
         </li>
@@ -21,7 +42,7 @@
 
     <% else #Logged out %>
 
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
         </li>
@@ -32,16 +53,5 @@
 
     <% end %>
 
-    <a class="navbar-brand mx-auto" href="<%= root_path %>">
-      Cash<strong>Live</strong>
-      <svg xmlns="http://www.w3.org/2000/svg">
-          <circle cx="5" cy="5" r="5" fill="red" />
-      </svg>
-    </a>
-
-    <form class="form-inline my-2 my-lg-0 ml-auto">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
