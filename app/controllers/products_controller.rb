@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   def show
     store = Store.friendly.find(params[:store_id])
     @product = store.products.find(params[:id])
+    @order_items = current_order.order_items.new
 
   end
 
