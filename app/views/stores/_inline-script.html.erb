@@ -76,8 +76,9 @@
         });
         hideUnnecessaryStuff();
     }
-    
+
     function killBroadcastButtonClickHandler() {
+        document.getElementById('kill').disabled = true;
         config.attachStream.getVideoTracks()[0].stop();
         config.attachStream.getAudioTracks()[0].stop();
     }
