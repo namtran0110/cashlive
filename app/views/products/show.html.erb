@@ -1,4 +1,11 @@
-<%= @product.name %>
-<%= @product.description %>
-<%= @product.image %>
-<%= @product.price %>
+<div class="container row">
+  <div class="col-md-6">
+    <%= image_tag @product.image %>
+  </div>
+  <div class="col-md-6">
+    <h2><%= @product.name %></h2>
+    <p><%= @product.description %></p>
+    <p><%= @product.price %></p>
+    <button>BUY NOW</button>
+  </div>
+</div>

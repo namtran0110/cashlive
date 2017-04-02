@@ -13,22 +13,23 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :name %><br/>
-        <%= f.text_field :name %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class:'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :Description %><br/>
-        <%= f.text_area :description %>
+        <%= f.label :Description %>
+        <%= f.text_area :description, class:'form-control' %>
       </div>
       <div class="field">
-        <%= f.label :price %><br/>
-        <%= f.number_field :price %>
+        <%= f.label :price %>
+        <%= f.number_field :price, class:'form-control' %>
       </div>
       <div class="field">
-        <%= f.file_field :image %>
+        <%= f.label :Image %>
+        <%= f.file_field :image, class:'form-control' %>
       </div>
-      <div class="actions">
-        <%= f.submit %>
+      <div class="actions text-center">
+        <%= f.submit class:'btn btn-success' %>
       </div>
   <% end %>
 </div>
