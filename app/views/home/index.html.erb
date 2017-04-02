@@ -18,8 +18,9 @@
           <% @streaming_stores.each do |store, i| %>
             <li
               data-store="<%= store.name %>"
-              data-stream="<%= store.stream_instance.title %>">
-              <%= image_tag store.user.avatar.url(:original) %>
+              data-stream="<%= store.stream_instance.title %>"
+              data-uri="<%= store_path(store) %>">
+              <%= image_tag store.user.avatar.url(:medium) %>
             </li>
           <% end %>
         </ul>

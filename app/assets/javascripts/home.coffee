@@ -20,14 +20,16 @@ $(document).on 'turbolinks:load', ->
 
     updatePanelText = (currentItem) ->
       storeName = currentItem.dataset.store
+      storeURI = currentItem.dataset.uri
       streamName = currentItem.dataset.stream
-      $('#coverflow-panel').html "<p>Live Store: <strong>" + storeName + "</strong><br>Streaming: \"" + streamName + "\"</p>"
+      $('#coverflow-panel').html "<p>Live Store: <strong><a href='" + storeURI + "'>" + storeName + "</a></strong><br>Streaming: \"" + streamName + "\"</p>"
       return
 
   #set initial panel markup, after flipster is initialized
   initialItem = $('.flipster__item--current')
   storeName = initialItem.data("store")
+  storeURI = initialItem.data("uri")
   streamName = initialItem.data("stream")
-  $('#coverflow-panel').html "<p>Live Store: <strong>" + storeName + "</strong><br>Streaming: \"" + streamName + "\"</p>"
+  $('#coverflow-panel').html "<p>Live Store: <strong><a href='" + storeURI + "'>" + storeName + "</a></strong><br>Streaming: \"" + streamName + "\"</p>"
 
   return
