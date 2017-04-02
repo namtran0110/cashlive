@@ -3,6 +3,7 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap-sprockets
+//= require jquery.flipster.min
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .

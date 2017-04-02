@@ -1,27 +1,48 @@
-<br>
-<h1>Home Page</h1>
+  <!-- <div class="hero"></div> -->
 
-<p>This is the home page, it shows popular streams and stores and is the landing page for anyone who is not logged in</p>
-<p>If a user is logged in, the controller will redirect them to "/dashboard", which is the real home page for lugged in users!</p>
+  <br>
+  <h2 class="text-center">Streaming Live Now:</h2>
+  <br>
 
-<h2>Stores streaming now:</h2>
-<% if @streaming_stores.count > 0 %>
-  <ul>
-    <% @streaming_stores.each do |store| %>
-      <%= render partial: 'stores/store_listing', locals: {store: store} %>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No stores are currently streaming</p>
-<% end %>
+    <div id="coverflow">
+      <div id="gradient"></div>
+      <% if @streaming_stores.count > 0 %>
+        <ul class="flip-items">
+          <% @streaming_stores.each do |store| %>
+            <li data-id="1">
+              <%= image_tag store.user.avatar.url(:original) %>
+              <!-- <p class="text-center"><%= store.name %></p> -->
+            </li>
+            <li data-id="2">
+              <%= image_tag store.user.avatar.url(:original) %>
+              <!-- <p class="text-center"><%= store.name %></p> -->
+            </li>
+            <li data-id="3">
+              <%= image_tag store.user.avatar.url(:original) %>
+              <!-- <p class="text-center"><%= store.name %></p> -->
+            </li>
+            <li data-id="4">
+              <%= image_tag store.user.avatar.url(:original) %>
+              <!-- <p class="text-center"><%= store.name %></p> -->
+            </li>
+            <li data-id="5">
+              <%= image_tag store.user.avatar.url(:original) %>
+              <!-- <p class="text-center"><%= store.name %></p> -->
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No stores are currently streaming</p>
+      <% end %>
+    </div>
 
-<h2>Other Popular stores:</h2>
-<% if @other_stores.count > 0 %>
-  <ul>
-    <% @other_stores.each do |store| %>
-      <%= render partial: 'stores/store_listing', locals: {store: store} %>
-    <% end %>
-  </ul>
-<% else %>
-  <p>All stores have already been listed above!</p>
-<% end %>
+  <h2>Other Popular stores:</h2>
+  <% if @other_stores.count > 0 %>
+    <ul>
+      <% @other_stores.each do |store| %>
+        <%= render partial: 'stores/store_listing', locals: {store: store} %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>All stores have already been listed above!</p>
+  <% end %>
