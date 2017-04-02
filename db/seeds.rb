@@ -41,5 +41,14 @@ Product.create store_id: user03.store.id, name: "Dau", price: 10000, image: File
 Product.create store_id: user03.store.id, name: "Viet Quat", price: 10000, image: File.new('seed_images/vietquat.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum asperiores nemo veritatis at, eos iure."
 Product.create store_id: user03.store.id, name: "Dua", price: 20000, image: File.new('seed_images/dua.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum asperiores nemo veritatis at, eos iure."
 
+sleep 1
+
+puts "generating Order statuses..."
+OrderStatus.delete_all
+OrderStatus.create! id: 1, name: "In Progress"
+OrderStatus.create! id: 2, name: "Placed"
+OrderStatus.create! id: 3, name: "Shipped"
+OrderStatus.create! id: 4, name: "Cancelled"
+
 puts " ======= SUCCESS ========"
 puts " === Seeding Complete ==="
