@@ -12,9 +12,9 @@
       </button>
     </form>
 
-    <a class="navbar-brand mx-auto" href="<%= root_path %>">
-      Cash<strong>Live</strong>
-      <svg xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="5" fill="red" /></svg>
+    <a class="navbar-brand mx-auto text-center" href="<%= root_path %>">
+      <%= image_tag 'logo-black@2x.png', style: 'width: 60%' %>
+      <div id="trapezoid"></div>
     </a>
 
     <% if current_user #logged in %>
