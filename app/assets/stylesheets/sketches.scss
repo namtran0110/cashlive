@@ -42,7 +42,7 @@ section.products {
   top: 0;
   bottom: 0;
   width: 340px;
-  border: 2px solid #83AF5D;
+  border-left: 3px solid $brand;
   background: white;
   &.open {
     right: 0;
