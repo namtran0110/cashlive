@@ -27,7 +27,6 @@
             htmlElement.setAttribute('controls', true);
             videosContainer.insertBefore(htmlElement, videosContainer.firstChild);
             htmlElement.play();
-            rotateInCircle(htmlElement);
         },
         onRoomFound: function (room) {
             var alreadyExist = document.querySelector('button[data-broadcaster="' + room.broadcaster + '"]');
@@ -43,6 +42,7 @@
             var joinRoomButton = tr.querySelector('.join');
             joinRoomButton.setAttribute('data-broadcaster', room.broadcaster);
             joinRoomButton.setAttribute('data-roomToken', room.broadcaster);
+            joinRoomButton.setAttribute('data-storeID', <%= store_id %>);
             joinRoomButton.onclick = function () {
                 this.disabled = true;
 
@@ -55,9 +55,11 @@
                 hideUnnecessaryStuff();
             };
 
-            //tlock addition --> immediately click 'join' button on room found
-            joinRoomButton.click();
-            console.log('clicked to join');
+            //tlock addition --> immediately click 'join' button for current room only
+            <% if streaming_now %>
+                document.querySelector('[data-storeid="<%= store_id %>"]').click();
+                console.log('clicked store id: <%= store_id %> to join');
+            <% end %>
         },
         onNewParticipant: function (numberOfViewers) {
             document.title = 'Viewers: ' + numberOfViewers;
@@ -165,7 +167,7 @@
         window.option = broadcastingOption ? broadcastingOption.value : '';
 
         if (option != 'Only Audio' && option != 'Screen' && DetectRTC.hasWebcam !== true) {
-            alert('DetectRTC library is unable to find webcam; maybe you denied webcam access once and it is still denied or maybe webcam device is not attached to your system or another app is using same webcam.');
+            console.log('DetectRTC library is unable to find webcam; maybe you denied webcam access once and it is still denied or maybe webcam device is not attached to your system or another app is using same webcam.');
         }
 
         var htmlElement = document.createElement(option === 'Only Audio' ? 'audio' : 'video');

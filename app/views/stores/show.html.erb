@@ -31,7 +31,7 @@
           <!-- local/remote videos container -->
           <div id="videos-container"></div>
         </section>
-        <%= render 'inline-script' %>
+        <%= render partial: 'inline-script', locals: { store_id: @store.id, streamer_view: @streamer_view, streaming_now: @store.streaming_now } %>
 
       </article>
     </div>
