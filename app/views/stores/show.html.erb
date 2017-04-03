@@ -42,16 +42,17 @@
   <% if @store.streaming_now == true %>
     <section class="products">
       <h2>Products in this stream</h2>
-      <p>{{ STILL NEEDS TO BE CONFIGURED PROPERLY }}
       <hr>
       <div class="container row">
-        <%= render @products, class: 'col-md-6' %>
+      <% @streaming_products.each do |product| %>
+        <%= render partial: 'products/product', locals: {product: product}, class: 'col-md-6' %>
+      <% end %>
       </div>
     </section>
   <% end %>
 
   <section class="products">
-    
+
     <% if @store.streaming_now == true %>
       <h2>Other popular products by seller</h2>
     <% else %>

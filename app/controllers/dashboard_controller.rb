@@ -20,6 +20,10 @@ class DashboardController < ApplicationController
 
       #other stores which are not in the first two lists
       @other_stores = @stores - (@subscribed_stores + @streaming_stores)
+
+
+      #for seller dashboard
+      @available_products = current_user.store.products
     end
   end
 end
