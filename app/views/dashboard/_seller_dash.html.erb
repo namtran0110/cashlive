@@ -20,17 +20,18 @@
 
   <%= form_tag("/stores/#{current_user.store.name}") do %>
     <div class="form">
-      <% # we want to keep existing params %>
-        <%= hidden_field_tag :streaming_now, true %>
-
-
-
+      
+      <%= hidden_field_tag :streaming_now, true %>
+      
       <div class="form-group">
         <label>Stream name:</label>
         <input name="stream_name" required>
       </div>
 
-      <%= select_tag :product_ids, options_from_collection_for_select(@available_products, :id, :name), multiple: true %>
+      <div class="form-group">
+      <label>Products included in stream:</label>
+        <%= select_tag :product_ids, options_from_collection_for_select(@available_products, :id, :name), multiple: true %>
+      </div>
 
       <div class="form-group">
         <%= submit_tag "Start Streaming", class: 'btn btn-primary' %>

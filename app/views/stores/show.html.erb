@@ -1,4 +1,5 @@
 <!-- PANEL -->
+<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script> <!-- audio/video recording -->
 <%= render 'side_panel' %>
 
 <!-- MAIN -->
@@ -12,11 +13,10 @@
 
       <!-- Kill Button -->
       <% if @streamer_view %>
-          <button id="kill" class="btn btn-danger">End Stream</button>
+          <button id="stop-recording" class="btn btn-danger">End Stream</button>
       <% end %>
 
       <article>
-        <!-- copy this <section> and next <script> -->
         <section class="experiment">
           <% if @streamer_view %>
               <section style="display: none;">
@@ -31,7 +31,6 @@
           <!-- local/remote videos container -->
           <div id="videos-container"></div>
         </section>
-
         <%= render 'inline-script' %>
 
       </article>
@@ -54,9 +53,9 @@
   <section class="products">
 
     <% if @store.streaming_now == true %>
-      <h2>Other popular products by seller</h2>
+        <h2>Other popular products by seller</h2>
     <% else %>
-      <h2>Products:</h2>
+        <h2>Products:</h2>
     <% end %>
 
     <hr>
