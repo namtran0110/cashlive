@@ -48,7 +48,7 @@ section.products {
   bottom: 0;
   width: 340px;
   border-left: 3px solid $brand;
-  background: white;
+  background: $light_gray;
   &.open {
     right: 0;
     & + #main {
@@ -112,7 +112,13 @@ section.products {
       padding: 6px;
       font-size: 14px;
     }
-    button { float: right; }
+    button {
+      display: none;
+      float: right;
+      @include respond-to(480px) {
+        display: block;
+      }
+    }
   }
 }
 
