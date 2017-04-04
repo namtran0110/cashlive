@@ -115,3 +115,13 @@ section.products {
     button { float: right; }
   }
 }
+
+//profile
+#profile {
+  height: 100%;
+  .wrapper {
+    height: 100%;
+    overflow: scroll;
+    padding-right: 8px;
+  }
+}

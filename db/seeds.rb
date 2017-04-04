@@ -22,6 +22,7 @@ puts "saving users to database..."
 user01.save
 user02.save
 user03.save
+Store.update_all(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde totam, tempora perferendis esse natus animi fuga sit voluptatibus inventore odit nihil cum quae ad provident debitis praesentium aspernatur laboriosam nulla eos assumenda iste, voluptatem obcaecati ipsa. Mollitia assumenda tempora earum deleniti quibusdam. Maxime tempora debitis est porro? Non, nobis, incidunt.")
 
 sleep 1
 puts "linking subscriptions..."
