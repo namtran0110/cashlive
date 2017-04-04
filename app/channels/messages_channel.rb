@@ -23,4 +23,8 @@ class MessagesChannel < ApplicationCable::Channel
   def render_message(message)
     ApplicationController.render partial: 'messages/message', locals: {message: message}
   end
+
+  def end_stream(bool)
+    ActionCable.server.broadcast("store_#{params[:store_id]}", bool)
+  end
 end

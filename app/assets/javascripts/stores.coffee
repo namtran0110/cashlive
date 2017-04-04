@@ -1,8 +1,9 @@
 $(document).on 'turbolinks:load', ->
 
   # trigger end store-actions
-  $('#stop-recording').on 'click', ->
+  $('#stop-recording').on 'click', (event) ->
     $('#end-stream-submit').click()
+    App.messages.endStream bool: true
     return
 
   # click setup broadcast button on load
