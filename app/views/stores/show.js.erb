@@ -1,0 +1,12 @@
+//empty stream
+$('#stream').empty();
+
+//replace headlines with offline headlines
+$('#store-headline').text("<%= @store.name %> is offline, but the store is available!");
+$('#other-products-headline').text('Products:');
+
+//move products from stream into normal product pool, and remove streaming-product section
+$('#streaming-products .wrapper').each(function(){
+  $(this).insertBefore('#main-products .wrapper:first-of-type');
+});
+$('#streaming-products').remove();

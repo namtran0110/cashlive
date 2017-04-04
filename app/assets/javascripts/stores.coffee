@@ -1,5 +1,10 @@
 $(document).on 'turbolinks:load', ->
 
+  # trigger end store-actions
+  $('#stop-recording').on 'click', ->
+    $('#end-stream-submit').click()
+    return
+
   # click setup broadcast button on load
   $('#setup-new-broadcast').click()
 
@@ -25,6 +30,7 @@ $(document).on 'turbolinks:load', ->
       $(this).prev('#message-input').focus().val ''
     return
 
+  #setup store chat
   $('.js-setup-store-chat').each ->
     storeId = $(this).data('store-id')
     window.setupStoreChat storeId
