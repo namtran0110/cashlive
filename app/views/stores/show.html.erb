@@ -5,7 +5,9 @@
 <!-- MAIN -->
 <div id="main">
   <% if @store.streaming_now == true %>
-      <h2><%= @store.user.username %> is live: <%= @store.stream_instance.title %></h2>
+      <h3 id="store-headline"><%= @store.name %><span class="message"> is live: <%= @store.stream_instance.title %></span></h3>
+  <% else %>
+      <h3 id="store-headline"><%= @store.name %><span class="message">'s stream is offline, but products are available for purchase at any time!</span></h3>
   <% end %>
   <section class="theater">
 
@@ -14,6 +16,12 @@
       <!-- Kill Button -->
       <% if @streamer_view %>
           <button id="stop-recording" class="btn btn-danger">End Stream</button>
+          <!-- Hidden Form -->
+          <%= form_tag("/stores/#{current_user.store.name}/end", remote: true, style: "display: none") do %>
+            <%= hidden_field_tag :end_stream, true %>
+            <%= submit_tag "End Stream", id: "end-stream-submit" %>
+          <% end %>
+
       <% end %>
 
       <article>
@@ -39,7 +47,7 @@
   </section>
 
   <% if @store.streaming_now == true %>
-    <section class="products">
+    <section id="streaming-products" class="products">
       <h2>Products in this stream</h2>
       <hr>
       <div class="container row">
@@ -50,10 +58,10 @@
     </section>
   <% end %>
 
-  <section class="products">
+  <section id="main-products" class="products">
 
     <% if @store.streaming_now == true %>
-        <h2>Other popular products by seller</h2>
+        <h2 id="other-products-headline">Other popular products by seller</h2>
     <% else %>
         <h2>Products:</h2>
     <% end %>

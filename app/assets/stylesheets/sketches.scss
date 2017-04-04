@@ -8,13 +8,18 @@ section.products {
 }
 
 //theater
+#store-headline {
+  padding: 43px 20px 20px;
+  margin-bottom: 0;
+}
 .theater {
   background: $dark_gray;
   text-align: center;
   #stream {
-    position: relative; //css bug currently
+    position: relative;
     display: inline-block;
     width: 100%;
+    //height: 80vh;
     h2.sketch-only {
       @include align(both);
       color: white;
@@ -34,7 +39,7 @@ section.products {
 
 //panel & main
 #main {
-  max-height: 100vh;
+  max-height: calc(100vh - #{$header_height});
   overflow-y: scroll;
 }
 .panel {

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'dashboard#show', as: :dashboard
 
   post '/stores/:id' => 'stores#show', as: :start_streaming
+  post '/stores/:id/end' => 'stores#show', as: :stop_streaming
 
   resources :stores, only: [:show, :edit, :update] do
     resources :products

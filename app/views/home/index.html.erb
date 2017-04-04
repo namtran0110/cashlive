@@ -1,11 +1,8 @@
-  <!-- <div class="hero"></div> -->
-<!--   <br>
-  <br>
-  <h2 class="text-center">Streaming Live Now:</h2>
-  <br> -->
   <div class="wrapper">
     <div id="coverflow">
       <div id="gradient"></div>
+
+      <% if @streaming_stores.count > 0 %>
 
       <h4>
         <small>Top stores:</small>
@@ -13,7 +10,6 @@
         <span>Live<svg xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="5" fill="red"></svg></span>
       </h4>
 
-      <% if @streaming_stores.count > 0 %>
         <ul class="flip-items">
           <% @streaming_stores.each do |store, i| %>
             <li
@@ -23,16 +19,27 @@
               <%= image_tag store.user.avatar.url(:medium) %>
             </li>
           <% end %>
+          <% @streaming_stores.each do |store, i| %>
+            <li
+              data-store="<%= store.name %>"
+              data-stream="<%= store.stream_instance.title %>"
+              data-uri="<%= store_path(store) %>">
+              <%= image_tag store.user.avatar.url(:medium) %>
+            </li>
+          <% end %>
         </ul>
-
-      <% else %>
-        <p>No stores are currently streaming</p>
       <% end %>
     </div>
 
-    <div id="coverflow-panel">
-      <!-- dynamically populated -->
-    </div>
+    <% if @streaming_stores.count > 0 %>
+      <div id="coverflow-panel">
+        <!-- dynamically populated -->
+      </div>
+    <% else %>
+        <div style="height: 100px; width: 100%;">
+          <h4 class="text-center" style="display: block; line-height: 100px; color: white">No stores are currently streaming :'(</h4>
+        </div>
+    <% end %>
   </div>
 
   <h2>Other Popular stores:</h2>
