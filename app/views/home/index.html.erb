@@ -37,11 +37,11 @@
 
   <h2>Other Popular stores:</h2>
   <% if @other_stores.count > 0 %>
-    <ul>
+    <div class="row">
       <% @other_stores.each do |store| %>
         <%= render partial: 'stores/store_listing', locals: {store: store} %>
       <% end %>
-    </ul>
+    </div>
   <% else %>
     <p>All stores have already been listed above!</p>
   <% end %>

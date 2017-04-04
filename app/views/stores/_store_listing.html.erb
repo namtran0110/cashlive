@@ -1,3 +1,25 @@
-<li>
-  <p><%= store.name %> <%= link_to "view store", store_path(store), class: 'btn btn-secondary btn-small' %></p>
-</li>
+<style>
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 40%;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .container {
+    padding: 2px 16px;
+  }
+</style>
+
+<div class="col-md-4">
+  <div class="card" style="width: 20rem;">
+    <%= image_tag store.user.avatar.url(:original), class: 'card-img-top' %>
+    <div class="card-block">
+      <h5 class="card-title"><%= link_to store.name, store_path(store) %></h5>
+      <p class="card-text"><%= store.user.description %></p>
+    </div>
+  </div>
+</div>

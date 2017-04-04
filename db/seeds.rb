@@ -13,9 +13,9 @@ User.create email: "xyz@gmail.com", password: "123456", username: "xyz"
 
 # Begin Demo-Ready Seed Data
 puts "generating users..."
-user01 = User.new password: "secret", email: "armyofbees@example.com", username: "ArmyOfBees", avatar: File.new('seed_images/armyofbees.png')
-user02 = User.new password: "secret", email: "tlock@example.com", username: "TLock", avatar: File.new('seed_images/tlock.jpg')
-user03 = User.new password: "secret", email: "superstore@example.com", username: "SuperStore", avatar: File.new('seed_images/superstore.jpg')
+user01 = User.new password: "secret", email: "armyofbees@example.com", username: "ArmyOfBees", avatar: File.new('seed_images/armyofbees.png'), description: "BEEEEEEE"
+user02 = User.new password: "secret", email: "tlock@example.com", username: "TLock", avatar: File.new('seed_images/tlock.jpg'), description: "BADA55"
+user03 = User.new password: "secret", email: "superstore@example.com", username: "SuperStore", avatar: File.new('seed_images/superstore.jpg'), description: "I AM CAPTAIN UNIVERSE"
 
 sleep 1
 puts "saving users to database..."

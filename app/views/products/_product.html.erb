@@ -3,7 +3,7 @@
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 999999; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -43,39 +43,40 @@
   <div class="card-block">
     <h4 class="card-title"><%= product.name %></h4>
     <p class="card-text"><%= product.price %> VND</p>
-    <button id="myBtn">SEE MORE</button>
+    <button data-target="#myModal-<%= product.id %>" data-toggle="modal">SEE MORE</button>
     <button>BUY NOW</button>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="row">
-          <div class="col-md-6">
-            <%= image_tag product.image.url(:original), class: 'card-img-top' %>
-          </div>
-          <div class="col-md-6">
-            <span class="close">&times;</span>
-            <h3 class="card-title"><%= product.name %></h3>
-            <p><%= product.description %></p>
-            <p><%= product.price %></p>
-            <button>BUY NOW</button>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
   </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal-<%= product.id %>" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="row">
+      <div class="col-md-6">
+        <%= image_tag product.image.url(:original), class: 'card-img-top' %>
+      </div>
+      <div class="col-md-6">
+        <span class="close">&times;</span>
+        <h3 class="card-title"><%= product.name %></h3>
+        <p><%= product.description %></p>
+        <p><%= product.price %></p>
+        <button>BUY NOW</button>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 <script>
     // Get the modal
     var modal = document.getElementById('myModal');
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -83,12 +84,12 @@
     // When the user clicks on the button, open the modal
     btn.onclick = function() {
         modal.style.display = "block";
-    }
+    };
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
-    }
+    };
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
