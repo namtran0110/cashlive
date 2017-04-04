@@ -5,9 +5,9 @@
 <!-- MAIN -->
 <div id="main">
   <% if @store.streaming_now == true %>
-      <h2 id="store-headline"><%= @store.name %> is live: <%= @store.stream_instance.title %></h2>
+      <h3 id="store-headline"><%= @store.name %> is live: <%= @store.stream_instance.title %></h3>
   <% else %>
-      <h2 id="store-headline"><%= @store.name %> is offline, but the store is available!</h2>
+      <h3 id="store-headline"><%= @store.name %>'s stream is offline, but products are available for purchase at any time!</h3>
   <% end %>
   <section class="theater">
 
