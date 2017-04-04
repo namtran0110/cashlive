@@ -16,7 +16,7 @@ class StoresController < ApplicationController
     @messages = @store.messages
     @streaming_products = Product.where(id: @store.stream_instance.product_ids)
     @products = @store.products - @streaming_products
-
+    @order_items = current_order.order_items
 
   end
 
