@@ -55,7 +55,7 @@
       <hr>
       <div class="container row">
       <% @streaming_products.each do |product| %>
-        <%= render partial: 'products/product', locals: {product: product}, class: 'col-md-6' %>
+        <%= render partial: 'products/product', order_item: @order_item, locals: {product: product}, class: 'col-md-6' %>
       <% end %>
       </div>
     </section>

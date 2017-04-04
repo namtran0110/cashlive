@@ -26,6 +26,7 @@ Store.update_all(description: "Lorem ipsum dolor sit amet, consectetur adipisici
 
 sleep 1
 puts "linking subscriptions..."
+
 Follow.create following_id: user02.id, follower_id: user01.id
 Follow.create following_id: user03.id, follower_id: user02.id
 Follow.create following_id: user01.id, follower_id: user03.id
