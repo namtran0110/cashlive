@@ -1,6 +1,10 @@
 //global
 $header_height: 60px; /* potential changes and dynamic resizing */
 
+.display-none {
+  display: none;
+}
+
 body {
   &.stores-show {
     overflow: hidden;
@@ -73,7 +77,7 @@ button {
     border-right: 20px solid transparent;
     height: 0;
     width: 198px;
-    top: 51px;
+    top: 52px;
     z-index: 2;
   }
   &:after {

@@ -11,13 +11,18 @@
   <% end %>
   <section class="theater">
 
-    <div id="stream">
+    <div id="stream" style="background-image: url(<%= @store.cover_photo.url(:original) %>)">
+
+      <!-- Overlay -->
+      <% if @store.streaming_now %>
+        <div class="overlay"></div>
+      <% end %>
 
       <!-- Kill Button -->
       <% if @streamer_view %>
           <button id="stop-recording" class="btn btn-danger">End Stream</button>
           <!-- Hidden Form -->
-          <%= form_tag("/stores/#{current_user.store.id}/end", remote: true, style: "display: none") do %>
+          <%= form_tag("/stores/#{current_user.store.slug}/end", remote: true, style: "display: none") do %>
             <%= hidden_field_tag :end_stream, true %>
             <%= submit_tag "End Stream", id: "end-stream-submit" %>
           <% end %>
@@ -34,7 +39,9 @@
       <% end %>
 
       <!-- local/remote videos container -->
-      <div id="videos-container"></div>
+      <div id="videos-container">
+        <%= image_tag "video_placeholder.png", id: 'fake-video-placeholder', class: @streamer_view ? "fake-video display-none" : "fake-video" %>
+      </div>
 
       <%= render partial: 'inline-script', locals: { store_id: @store.id, streamer_view: @streamer_view, streaming_now: @store.streaming_now } %>
 

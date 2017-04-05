@@ -16,19 +16,24 @@ section.products {
   background: $dark_gray;
   text-align: center;
   #stream {
+    background-size: cover;
+    background-position: 50% 50%;
     position: relative;
     display: inline-block;
     width: 100%;
-    height: 70vh;
-    h2.sketch-only {
-      @include align(both);
-      color: white;
-    }
     #stop-recording {
       position: absolute;
       right: 10px;
       top: 10px;
       z-index: 2;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
     }
   }
   video,
@@ -38,6 +43,9 @@ section.products {
 }
 
 //scroll function css
+#videos-container {
+  position: relative;
+}
 #main.scrolled #videos-container {
   position: fixed;
   top: 63px;

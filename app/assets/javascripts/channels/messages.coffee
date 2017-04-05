@@ -33,7 +33,9 @@ window.setupStoreChat = (storeId) ->
 
     cleanStream = ->
       #empty stream
-      $('#stream').empty()
+      $('video, #stop-recording').remove()
+      $('#fake-video-placeholder').removeClass('display-none')
+      $('#stream .overlay').addClass('fade hide');
       #replace headlines with offline headlines
       $('#store-headline .message').text '\'s stream is offline, but products are available for purchase at any time!'
       $('#other-products-headline').text 'Products:'
