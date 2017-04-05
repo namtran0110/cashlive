@@ -64,6 +64,10 @@
         },
         onNewParticipant: function (numberOfViewers) {
             document.title = 'Viewers: ' + numberOfViewers;
+            var viewersDiv = document.getElementById('viewers');
+            var viewerCount = document.getElementById('viewer-count');
+            viewersDiv.className = "fade show";
+            viewerCount.textContent="Viewers: " + numberOfViewers;
         }
     };
     var audioRecorder, videoRecorder;

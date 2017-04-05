@@ -15,7 +15,11 @@
 
       <!-- Overlay -->
       <% if @store.streaming_now %>
-        <div class="overlay"></div>
+        <div class="overlay">
+          <div class="wrapper">
+            <div class="spinner"></div>
+          </div>
+        </div>
       <% end %>
 
       <!-- Kill Button -->
@@ -27,6 +31,14 @@
             <%= submit_tag "End Stream", id: "end-stream-submit" %>
           <% end %>
       <% end %>
+
+      <!-- Viewer Count -->
+      <div id="viewers" class="fade hide">
+        <span class="svg-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="5" fill="red"></svg>
+          <span id="viewer-count">Viewers: 0</span>
+        </span>
+      </div>
 
       <% if @streamer_view %>
           <section style="display: none;">
