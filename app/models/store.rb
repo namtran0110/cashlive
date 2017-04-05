@@ -13,4 +13,8 @@ class Store < ApplicationRecord
   validates :name, presence: true, uniqueness: { message: "Username already in use" }
   validates :slug, presence: true, uniqueness: { message: "Username already in use" }
 
+  #image stuff
+  has_attached_file :cover_photo, styles: { large: "800x800>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :cover_photo, content_type: /\Aimage\/.*\z/
+
 end

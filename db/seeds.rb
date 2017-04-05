@@ -31,6 +31,12 @@ Follow.create following_id: user03.id, follower_id: user02.id
 Follow.create following_id: user01.id, follower_id: user03.id
 
 sleep 1
+puts "adding store cover photos..."
+Store.find(user01.store.id).update(cover_photo: File.new('seed_images/hive.jpg'))
+Store.find(user02.store.id).update(cover_photo: File.new('seed_images/tlock_cover.jpg'))
+Store.find(user03.store.id).update(cover_photo: File.new('seed_images/super_cover.jpg'))
+
+sleep 1
 puts "generating products..."
 Product.create store_id: user01.store.id, name: "Guitar", price: 1000000, image: File.new('seed_images/guitar.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde laboriosam dignissimos placeat, voluptate temporibus omnis recusandae nam autem saepe officiis!"
 Product.create store_id: user01.store.id, name: "Keyboard", price: 1200000, image: File.new('seed_images/keyboard.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, excepturi!"
