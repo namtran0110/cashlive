@@ -1,8 +1,7 @@
 //products
 section.products {
   padding: 20px;
-  background: white;
-  &:nth-of-type(even) {
+  &:nth-of-type(odd) {
     background: $light_gray;
   }
 }
