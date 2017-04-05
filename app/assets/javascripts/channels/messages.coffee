@@ -17,6 +17,8 @@ window.setupStoreChat = (storeId) ->
       # received a message
       if 'body' of data
         $('.messages').append data.body
+        scrollTop = $('.messages').scrollTop()
+        $('.messages').scrollTop(scrollTop + 90);
 
       #received an end stream action
       if 'action' of data
