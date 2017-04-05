@@ -21,34 +21,30 @@
             <%= hidden_field_tag :end_stream, true %>
             <%= submit_tag "End Stream", id: "end-stream-submit" %>
           <% end %>
-
       <% end %>
 
-      <article>
-        <section class="experiment">
-          <% if @streamer_view %>
-              <section style="display: none;">
-                <input type="text" id="broadcast-name" value="<%= @stream_name %>">
-                <button id="setup-new-broadcast" class="setup">Setup New Broadcast</button>
-              </section>
+      <% if @streamer_view %>
+          <section style="display: none;">
+            <input type="text" id="broadcast-name" value="<%= @stream_name %>">
+            <button id="setup-new-broadcast" class="setup">Setup New Broadcast</button>
+          </section>
+      <% else %>
+          <!-- list of all available broadcasting rooms -->
+          <table style="display: none; width: 100%;" id="rooms-list"></table>
+      <% end %>
 
-          <% else %>
-              <!-- list of all available broadcasting rooms -->
-              <table style="display: none; width: 100%;" id="rooms-list"></table>
-          <% end %>
-          <!-- local/remote videos container -->
-          <div id="videos-container"></div>
-        </section>
-        <%= render partial: 'inline-script', locals: { store_id: @store.id, streamer_view: @streamer_view, streaming_now: @store.streaming_now } %>
+      <!-- local/remote videos container -->
+      <div id="videos-container"></div>
 
-      </article>
+      <%= render partial: 'inline-script', locals: { store_id: @store.id, streamer_view: @streamer_view, streaming_now: @store.streaming_now } %>
+
     </div>
 
   </section>
 
   <% if @store.streaming_now == true %>
     <section id="streaming-products" class="products">
-      <h2>Products in this stream</h2>
+      <h3>Products in this stream</h3>
       <hr>
       <div class="container row">
       <% @streaming_products.each do |product| %>
@@ -61,9 +57,9 @@
   <section id="main-products" class="products">
 
     <% if @store.streaming_now == true %>
-        <h2 id="other-products-headline">Other popular products by seller</h2>
+        <h3 id="other-products-headline">Other popular products by seller</h3>
     <% else %>
-        <h2>Products:</h2>
+        <h3>Products:</h3>
     <% end %>
 
     <hr>
