@@ -1,6 +1,15 @@
 //global
 $header_height: 59px; /* potential changes and dynamic resizing */
 
+a {
+  color: $brand; text-decoration: none;
+  &:hover,
+  &:focus {
+    color: darken($brand, 10%);
+    //text-decoration: none;
+  }
+}
+
 .display-none {
   display: none;
 }
@@ -124,4 +133,10 @@ button {
     transform: scale(1);
     opacity: 0;
   }
+}
+
+
+//tab
+.tab-pane {
+  padding-top: 20px;
 }
