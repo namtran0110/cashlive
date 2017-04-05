@@ -38,10 +38,11 @@
           <table style="display: none; width: 100%;" id="rooms-list"></table>
       <% end %>
 
+      <!-- placeholder to make sizing work with many dynamic events on page -->
+      <%= image_tag "video_placeholder.png", id: 'fake-video-placeholder', class: @streamer_view ? "fake-video display-none" : "fake-video" %>
+
       <!-- local/remote videos container -->
-      <div id="videos-container">
-        <%= image_tag "video_placeholder.png", id: 'fake-video-placeholder', class: @streamer_view ? "fake-video display-none" : "fake-video" %>
-      </div>
+      <div id="videos-container"></div>
 
       <%= render partial: 'inline-script', locals: { store_id: @store.id, streamer_view: @streamer_view, streaming_now: @store.streaming_now } %>
 
