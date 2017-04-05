@@ -4,19 +4,6 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-    <ul class="navbar-nav mr-auto">
-      <form class="navbar__search-form form-inline my-2 my-sm-0 mr-auto">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="navbar__search-button" type="submit">
-          <i class="icon-search"></i>
-        </button>
-      </form>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Browse</a>
-      </li>
-    </ul>
-
     <a class="navbar-brand mx-auto text-center" href="<%= root_path %>">
       <%= image_tag 'logo-black@2x.png', style: 'width: 60%' %>
       <div id="trapezoid"></div>
@@ -25,7 +12,7 @@
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <h1 class="cart-text"><%= render 'shared/cart_text' %></h1>
+        <%= link_to "My Cart",  carts_path, class: "nav-link" %>
       </li>
       <% if current_user #logged in %>
         <li class="nav-item">
