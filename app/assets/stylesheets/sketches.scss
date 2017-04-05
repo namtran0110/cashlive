@@ -19,7 +19,7 @@ section.products {
     position: relative;
     display: inline-block;
     width: 100%;
-    //height: 80vh;
+    height: 70vh;
     h2.sketch-only {
       @include align(both);
       color: white;
@@ -36,6 +36,15 @@ section.products {
     max-height: 70vh;
   }
 }
+
+//scroll function css
+#main.scrolled #videos-container {
+  position: fixed;
+  top: 63px;
+  right: 0;
+  width: 337px;
+}
+
 
 //panel & main
 #main {
@@ -85,7 +94,7 @@ section.products {
 //chat
 #chat {
   height: 100%;
-  padding-bottom: 145px;
+  padding-bottom: 120px;
   .messages {
     height: 100%;
     overflow: scroll;
@@ -115,9 +124,12 @@ section.products {
     button {
       display: none;
       float: right;
-      @include respond-to(480px) {
-        display: block;
-      }
+    }
+  }
+  @include respond-to(480px) {
+    padding-bottom: 145px;
+    .messages .chat-input button {
+      display: block;
     }
   }
 }

@@ -21,27 +21,23 @@
             <%= hidden_field_tag :end_stream, true %>
             <%= submit_tag "End Stream", id: "end-stream-submit" %>
           <% end %>
-
       <% end %>
 
-      <article>
-        <section class="experiment">
-          <% if @streamer_view %>
-              <section style="display: none;">
-                <input type="text" id="broadcast-name" value="<%= @stream_name %>">
-                <button id="setup-new-broadcast" class="setup">Setup New Broadcast</button>
-              </section>
+      <% if @streamer_view %>
+          <section style="display: none;">
+            <input type="text" id="broadcast-name" value="<%= @stream_name %>">
+            <button id="setup-new-broadcast" class="setup">Setup New Broadcast</button>
+          </section>
+      <% else %>
+          <!-- list of all available broadcasting rooms -->
+          <table style="display: none; width: 100%;" id="rooms-list"></table>
+      <% end %>
 
-          <% else %>
-              <!-- list of all available broadcasting rooms -->
-              <table style="display: none; width: 100%;" id="rooms-list"></table>
-          <% end %>
-          <!-- local/remote videos container -->
-          <div id="videos-container"></div>
-        </section>
-        <%= render partial: 'inline-script', locals: { store_id: @store.id, streamer_view: @streamer_view, streaming_now: @store.streaming_now } %>
+      <!-- local/remote videos container -->
+      <div id="videos-container"></div>
 
-      </article>
+      <%= render partial: 'inline-script', locals: { store_id: @store.id, streamer_view: @streamer_view, streaming_now: @store.streaming_now } %>
+
     </div>
 
   </section>
