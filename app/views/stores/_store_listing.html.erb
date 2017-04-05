@@ -1,3 +1,13 @@
-<li>
-  <p><%= store.name %> <%= link_to "view store", store_path(store), class: 'btn btn-secondary btn-small' %></p>
-</li>
+<div class="col-md-6">
+  <div class="content">
+    <div class="grid">
+      <figure class="effect-apollo">
+        <%= image_tag store.user.avatar(:original) %>
+        <figcaption>
+          <h3><%= store.name %></h3>
+          <p><%= link_to store.user.description, store_path(store), class: 'store_description' %></p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
