@@ -17,7 +17,7 @@
       <% if @streamer_view %>
           <button id="stop-recording" class="btn btn-danger">End Stream</button>
           <!-- Hidden Form -->
-          <%= form_tag("/stores/#{current_user.store.name}/end", remote: true, style: "display: none") do %>
+          <%= form_tag("/stores/#{current_user.store.id}/end", remote: true, style: "display: none") do %>
             <%= hidden_field_tag :end_stream, true %>
             <%= submit_tag "End Stream", id: "end-stream-submit" %>
           <% end %>

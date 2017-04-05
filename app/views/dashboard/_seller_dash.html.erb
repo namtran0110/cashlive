@@ -18,11 +18,11 @@
 
   <h4>Start Streaming:</h4>
 
-  <%= form_tag("/stores/#{current_user.store.name}") do %>
+  <%= form_tag("/stores/#{current_user.store.id}") do %>
     <div class="form">
-      
+
       <%= hidden_field_tag :streaming_now, true %>
-      
+
       <div class="form-group">
         <label>Stream name:</label>
         <input name="stream_name" required>
