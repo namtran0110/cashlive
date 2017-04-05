@@ -1,13 +1,15 @@
 <div class="col-md-6">
   <div class="content">
-    <div class="grid">
-      <figure class="effect-apollo">
-        <%= image_tag store.user.avatar(:original) %>
-        <figcaption>
-          <h3><%= store.name %></h3>
-          <p><%= link_to store.user.description, store_path(store), class: 'store_description' %></p>
-        </figcaption>
-      </figure>
-    </div>
+    <a href="<%= store_path(store) %>">
+      <div class="grid">
+        <figure class="effect-apollo" style="width: 550px; height: 300px;">
+          <%= image_tag store.user.avatar(:original) %>
+          <figcaption>
+            <h3><%= store.name %></h3>
+            <p><%= store.description %></p>
+          </figcaption>
+        </figure>
+      </div>
+    </a>
   </div>
 </div>
