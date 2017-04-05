@@ -3,12 +3,13 @@ class ProductsController < ApplicationController
   def index
     store = Store.friendly.find(params[:store_id])
     @products = store.products
+    @order_item = current_order.order_items.new
   end
 
   def show
     store = Store.friendly.find(params[:store_id])
     @product = store.products.find(params[:id])
-
+    @order_item = current_order.order_items.new
   end
 
   def new

@@ -18,6 +18,7 @@ Store.update_all(description: "Lorem ipsum dolor sit amet, consectetur adipisici
 
 puts "linking subscriptions..."
 # This step is optional
+
 Follow.create following_id: user02.id, follower_id: user01.id
 Follow.create following_id: user03.id, follower_id: user02.id
 Follow.create following_id: user01.id, follower_id: user03.id
@@ -40,6 +41,15 @@ Product.create store_id: user03.store.id, name: "Xoai", price: 15000, image: Fil
 Product.create store_id: user03.store.id, name: "Dau", price: 10000, image: File.new('seed_images/dau.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, excepturi!"
 Product.create store_id: user03.store.id, name: "Viet Quat", price: 10000, image: File.new('seed_images/vietquat.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum asperiores nemo veritatis at, eos iure."
 Product.create store_id: user03.store.id, name: "Dua", price: 20000, image: File.new('seed_images/dua.jpg'),  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum asperiores nemo veritatis at, eos iure."
+
+sleep 1
+
+puts "generating Order statuses..."
+OrderStatus.delete_all
+OrderStatus.create! id: 1, name: "In Progress"
+OrderStatus.create! id: 2, name: "Placed"
+OrderStatus.create! id: 3, name: "Shipped"
+OrderStatus.create! id: 4, name: "Cancelled"
 
 puts " ======= SUCCESS ========"
 puts " === Seeding Complete ==="

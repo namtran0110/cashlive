@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :carts, only: [:index]
+  post '/payment' => 'carts#payment'
+  resources :order_items, only: [:create, :update, :destroy]
+
   post '/rate' => 'rater#create', :as => 'rate'
   mount ActionCable.server => '/cable'
 
