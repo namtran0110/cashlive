@@ -39,21 +39,23 @@ $(document).on 'turbolinks:load', ->
 
   #scrolling on page
   $('#main').scroll ->
-    scrollTop = $(this).scrollTop()
-    vidHeight = $('video').height()
-    headlineHeight = $('#store-headline').height()
+    if $('video').length
+      scrollTop = $(this).scrollTop()
+      vidHeight = $('video').height()
+      headlineHeight = $('#store-headline').height()
 
-    if scrollTop >= vidHeight * .8 + headlineHeight
-      $(this).addClass 'scrolled'
-      newVidHeight = $('video').height()
-      $('.panel .tab-content').css
-        'height': 'calc(100% - ' + newVidHeight + 'px)'
-        'top': newVidHeight + 'px'
-    else
-      $(this).removeClass 'scrolled'
-      $('.panel .tab-content').css
-        'height': '100%'
-        'top': 'auto'
+      if scrollTop >= vidHeight * .8 + headlineHeight
+        $(this).addClass 'scrolled'
+        newVidHeight = $('video').height()
+        $('.panel .tab-content').css
+          'height': 'calc(100% - ' + newVidHeight + 'px)'
+          'top': newVidHeight + 'px'
+      else
+        $(this).removeClass 'scrolled'
+        $('.panel .tab-content').css
+          'height': '100%'
+          'top': 'auto'
+      return
     return
 
     return
