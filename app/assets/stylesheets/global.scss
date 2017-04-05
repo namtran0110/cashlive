@@ -1,5 +1,5 @@
 //global
-$header_height: 60px; /* potential changes and dynamic resizing */
+$header_height: 59px; /* potential changes and dynamic resizing */
 
 .display-none {
   display: none;
@@ -17,6 +17,7 @@ body {
   padding: 0;
   margin-top: $header_height;
   position: relative;
+  top: -24px;
 }
 .wrapper {
   position: relative;
@@ -77,7 +78,7 @@ button {
     border-right: 20px solid transparent;
     height: 0;
     width: 198px;
-    top: 52px;
+    top: 47px;
     z-index: 2;
   }
   &:after {
@@ -90,7 +91,7 @@ button {
     border-right: 20px solid transparent;
     height: 0;
     width: 200px;
-    top: 54px;
+    top: 50px;
   }
 }
 
