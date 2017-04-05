@@ -2,11 +2,11 @@
   <div class="content">
     <a href="<%= store_path(store) %>">
       <div class="grid">
-        <figure class="effect-apollo" style="width: 550px; height: 300px;">
-          <%= image_tag store.user.avatar(:original) %>
+        <figure class="effect-apollo" style="max-height: 250px; height: 100vh;">
+          <%= image_tag store.cover_photo(:large) %>
           <figcaption>
             <h3><%= store.name %></h3>
-            <p><%= store.description %></p>
+            <p>Go to store &rarr;</p>
           </figcaption>
         </figure>
       </div>

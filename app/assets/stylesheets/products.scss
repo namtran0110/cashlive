@@ -41,8 +41,8 @@
    position: relative;
    clear: both;
    margin: 0 auto;
-   padding: 1em 0 4em;
-   max-width: 1000px;
+   padding: 1em 0;
+   max-width: 100%;
    list-style: none;
    text-align: center;
  }
@@ -59,6 +59,7 @@
  }
 
  .grid figure img {
+  object-fit: cover;
    position: relative;
    display: block;
    min-height: 100%;
@@ -73,6 +74,7 @@
    font-size: 1.25em;
    -webkit-backface-visibility: hidden;
    backface-visibility: hidden;
+
  }
 
  .grid figure figcaption::before,
@@ -160,7 +162,8 @@
    bottom: 0;
    margin: 3em;
    padding: 0 1em;
-   max-width: 150px;
+   //max-width: 150px;
+   //@include ellipsis();
    border-right: 4px solid #fff;
    text-align: right;
    opacity: 0;
@@ -236,7 +239,7 @@
 
  .content {
    margin: 0 auto;
-   max-width: 1000px;
+   max-width: 100%;
  }
 
  .content > h2:first-child {

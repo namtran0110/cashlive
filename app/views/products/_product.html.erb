@@ -1,12 +1,12 @@
-<div class="wrapper">
-  <div class="col-md-3" data-target="#myModal-<%= product.id %>" data-toggle="modal">
+<div class="col-lg-6 col-xl-4 wrapper">
+  <div data-target="#myModal-<%= product.id %>" data-toggle="modal">
     <div class="content">
       <div class="grid">
-        <figure class="effect-apollo" style="width: 400px; height: 300px;">
+        <figure class="effect-apollo" style="max-height: 250px; height: 100vh;">
           <%= image_tag product.image.url(:original), class: 'card-img-top' %>
           <figcaption>
             <h3><%= product.name %></h3>
-            <p>See More</p>
+            <p>See More &rarr;</p>
           </figcaption>
         </figure>
       </div>
