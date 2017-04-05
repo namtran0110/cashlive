@@ -46,12 +46,14 @@ $(document).on 'turbolinks:load', ->
 
       if scrollTop >= vidHeight * .8 + headlineHeight
         $(this).addClass 'scrolled'
+        $('#fake-video-placeholder').removeClass 'display-none'
         newVidHeight = $('video').height()
         $('.panel .tab-content').css
           'height': 'calc(100% - ' + newVidHeight + 'px)'
           'top': newVidHeight + 'px'
       else
         $(this).removeClass 'scrolled'
+        $('#fake-video-placeholder').addClass 'display-none'
         $('.panel .tab-content').css
           'height': '100%'
           'top': 'auto'
