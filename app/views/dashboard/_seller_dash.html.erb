@@ -18,7 +18,7 @@
 
   <h4>Start Streaming:</h4>
 
-  <%= form_tag("/stores/#{current_user.store.id}") do %>
+  <%= form_tag("/stores/#{current_user.store.slug}") do %>
     <div class="form">
 
       <%= hidden_field_tag :streaming_now, true %>

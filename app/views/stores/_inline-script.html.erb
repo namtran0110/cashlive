@@ -25,6 +25,7 @@
         },
         onRemoteStream: function (htmlElement) {
             htmlElement.setAttribute('controls', true);
+            document.getElementById("fake-video-placeholder").classList.add("display-none");
             videosContainer.insertBefore(htmlElement, videosContainer.firstChild);
             htmlElement.play();
         },
