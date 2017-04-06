@@ -5,7 +5,7 @@
         cart.
       </p>
   <% else %>
-      <h2>Total: <%= number_to_currency current_order.subtotal %> VND</h2>
+      <h2>Total: <%= number_to_currency current_order.subtotal %></h2>
       <table class="table">
         <thead>
         <tr>
@@ -20,7 +20,7 @@
             <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
       <% end %>
       </table>
-      <p><%= link_to "Payment", payment_path, method: :post, class: 'btn btn-secondary' %></p>
+      <p><%= link_to "Checkout", payment_path, method: :post, class: 'btn btn-secondary' %></p>
       <p><%= link_to "Continue shopping", root_path, class: "btn btn-secondary" %></p>
 
   <% end %>
