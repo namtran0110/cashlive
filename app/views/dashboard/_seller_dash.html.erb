@@ -6,7 +6,7 @@
       <%= link_to 'View my store', store_path(current_user.store)  %>
     </li>
     <li>
-      <%= link_to 'Edit my information', store_path(current_user.store)  %>
+      <%= link_to 'Edit my information', edit_user_registration_path(current_user)  %>
     </li>
     <li>
       <%= link_to 'Add a new product', new_store_product_path(current_user.store)  %>

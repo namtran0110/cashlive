@@ -11,22 +11,27 @@
 
 
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <%= link_to "My Cart",  carts_path, class: "nav-link" %>
-      </li>
       <% if current_user #logged in %>
         <li class="nav-item">
           <a class="nav-link" href="<%= dashboard_path %>">Dashboard</a>
         </li>
 
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link" id="myStoreDropdown" data-target="#" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Store <span class="dropdown-arrow">&#9660;</span></a>
           <ul class="dropdown-menu" aria-labelledby="myStoreDropdown">
             <li><%= link_to 'View', store_path(current_user.store), class: "dropdown-item" %></li>
             <li><%= link_to 'Edit', edit_user_registration_path(current_user), class: "dropdown-item" %></li>
             <li><%= link_to 'Add Product', new_store_product_path(current_user.store), class: "dropdown-item" %></li>
-            <li><%= link_to 'Start Streaming', '#', class: "dropdown-item" %></li>
+            <li><%= link_to 'Start Streaming', dashboard_path, class: "dropdown-item" %></li>
           </ul>
+        </li> -->
+
+        <li class="nav-item">
+          <%= link_to "Cart",  carts_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <span class="nav-link"> | </span>
         </li>
 
         <li class="nav-item">
@@ -36,6 +41,9 @@
 
           <li class="nav-item">
             <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link"> | </span>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= new_user_registration_path %>">Register</a>
