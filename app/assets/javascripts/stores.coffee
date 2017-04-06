@@ -48,7 +48,7 @@ $(document).on 'turbolinks:load', ->
         $(this).addClass 'scrolled'
         $('#fake-video-placeholder').removeClass 'display-none'
         $('.spinner').addClass 'display-none'
-        newVidHeight = $('video').height()
+        newVidHeight = $('video').outerHeight() + 3
         $('.panel .tab-content').css
           'height': 'calc(100% - ' + newVidHeight + 'px)'
           'top': newVidHeight + 'px'

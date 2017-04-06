@@ -76,7 +76,9 @@ section.products {
   position: fixed;
   top: 59px;
   right: 0;
-  width: 337px;
+  width: 340px;
+  border-left: 3px solid $brand;
+  border-bottom: 3px solid $brand;
 }
 
 
@@ -99,9 +101,9 @@ section.products {
     }
   }
   &.closed {
-    right: -300px;
+    right: -330px;
     & + #main {
-      margin-right: 40px;
+      margin-right: 10px;
     }
   }
   .tab-content {
@@ -123,6 +125,58 @@ section.products {
 #profile {
   padding: 20px;
   padding-top: 62px;
+}
+
+//panel toggle
+.panel-toggle {
+  button {
+    color: black;
+    background: none;
+    border: none;
+    font-size: 22px;
+    position: absolute;
+    right: 100%;
+    top: -2px;
+    z-index: 4;
+    outline: none;
+    padding: 10px 0;
+    transition: all 150ms ease;
+    &:hover {
+      color: darken($brand, 10%);
+    }
+  }
+  &:before {
+    @include align(horizontal);
+    left: auto;
+    content: '';
+    display: block;
+    box-sizing: content-box;
+    border-top: 25px solid $light_gray;
+    border-left: 0px solid transparent;
+    border-right: 25px solid transparent;
+    height: 65px;
+    width: 65px;
+    top: 0;
+    right: 100%;
+    z-index: 4;
+    transform: rotate(90deg);
+  }
+  &:after {
+    @include align(horizontal);
+    left: auto;
+    content: '';
+    display: block;
+    box-sizing: content-box;
+    border-top: 25px solid $brand;
+    border-left: 0px solid transparent;
+    border-right: 25px solid transparent;
+    right: 100%;
+    height: 63px;
+    width: 69px;
+    top: 0;
+    transform: rotate(90deg);
+    z-index: 3;
+  }
 }
 
 //chat
