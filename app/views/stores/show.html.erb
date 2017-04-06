@@ -15,7 +15,7 @@
 
       <!-- Overlay -->
       <% if @store.streaming_now %>
-        <div class="overlay">
+        <div class="overlay fade show">
           <div class="wrapper">
             <div class="spinner"></div>
           </div>
@@ -83,8 +83,10 @@
     <% end %>
 
     <hr>
-    <div class="container row">
-      <%= render @products %>
+    <div class="container-fluid">
+      <div class="row">
+        <%= render @products %>
+      </div>
     </div>
   </section>
 </div>

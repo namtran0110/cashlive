@@ -12,5 +12,6 @@
 $(document).on('turbolinks:load', function(){
   $('.panel-toggle button').on('click', function(){
     $(this).closest($('.panel')).toggleClass('open closed');
+    $('button i').toggleClass('icon-collapse icon-expand');
   });
 });

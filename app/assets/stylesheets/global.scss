@@ -1,11 +1,22 @@
 //global
-$header_height: 60px; /* potential changes and dynamic resizing */
+$header_height: 59px; /* potential changes and dynamic resizing */
+
+a {
+  color: $brand; text-decoration: none;
+  &:hover,
+  &:focus {
+    color: darken($brand, 10%);
+    //text-decoration: none;
+  }
+}
 
 .display-none {
   display: none;
 }
 
 body {
+  background: #fff url('/assets/bg.png') repeat center center;
+  background-size: 100px;
   &.stores-show {
     overflow: hidden;
     .app-container {
@@ -17,6 +28,7 @@ body {
   padding: 0;
   margin-top: $header_height;
   position: relative;
+  top: -24px;
 }
 .wrapper {
   position: relative;
@@ -77,7 +89,7 @@ button {
     border-right: 20px solid transparent;
     height: 0;
     width: 198px;
-    top: 52px;
+    top: 47px;
     z-index: 2;
   }
   &:after {
@@ -90,7 +102,7 @@ button {
     border-right: 20px solid transparent;
     height: 0;
     width: 200px;
-    top: 54px;
+    top: 50px;
   }
 }
 
@@ -123,4 +135,10 @@ button {
     transform: scale(1);
     opacity: 0;
   }
+}
+
+
+//tab
+.tab-pane {
+  padding-top: 20px;
 }

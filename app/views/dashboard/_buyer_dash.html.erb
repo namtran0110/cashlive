@@ -1,19 +1,11 @@
 <div id="buyer_dash" role="tabpanel" class="tab-pane fade show active">
 
-  <h2>Dashboard for user: <strong><%= @user.username %></strong></h2>
-
-  <p>This is like the homepage for a logged in user. It will display popular current streams, a list of subscribed
-    channels, and maybe other things</p>
-  <p>It will also have a link for "seller dashboard", which could be a tab or a separate page</p>
-
   <h2>Stores streaming now:</h2>
   <div class="row">
     <% if @streaming_stores.count > 0 %>
-        <ul>
-          <% @streaming_stores.each do |store| %>
-              <%= render partial: 'stores/store_listing', locals: {store: store} %>
-          <% end %>
-        </ul>
+      <% @streaming_stores.each do |store| %>
+          <%= render partial: 'stores/store_listing', locals: {store: store} %>
+      <% end %>
     <% else %>
         <p>No stores are currently streaming</p>
     <% end %>
@@ -21,11 +13,9 @@
     <h2>Stores I subscribe to:</h2>
   <div class="row">
     <% if @subscribed_stores.count > 0 %>
-        <div class="col-md-3">
-          <% @subscribed_stores.each do |store| %>
-              <%= render partial: 'stores/store_listing', locals: {store: store} %>
-          <% end %>
-        </div>
+      <% @subscribed_stores.each do |store| %>
+          <%= render partial: 'stores/store_listing', locals: {store: store} %>
+      <% end %>
     <% else %>
         <p>You aren't currently subscribed to any stores</p>
     <% end %>

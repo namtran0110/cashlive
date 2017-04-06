@@ -12,6 +12,7 @@ class CartsController < ApplicationController
     if !session[:order_id].nil?
       session.delete(:order_id)
     end
+    flash[:success] = "Your order was successful!"
     redirect_to root_path
   end
 
