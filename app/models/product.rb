@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :store
+  has_many :order_items
+
   validates :price, :presence => true
   validates :name, :presence => true
   validates :description, :presence => true

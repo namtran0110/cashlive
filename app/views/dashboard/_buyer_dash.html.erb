@@ -1,40 +1,33 @@
 <div id="buyer_dash" role="tabpanel" class="tab-pane fade show active">
 
-  <h2>Dashboard for user: <strong><%= @user.username %></strong></h2>
-
-  <p>This is like the homepage for a logged in user. It will display popular current streams, a list of subscribed channels, and maybe other things</p>
-  <p>It will also have a link for "seller dashboard", which could be a tab or a separate page</p>
-
   <h2>Stores streaming now:</h2>
-  <% if @streaming_stores.count > 0 %>
-    <ul>
+  <div class="row">
+    <% if @streaming_stores.count > 0 %>
       <% @streaming_stores.each do |store| %>
-        <%= render partial: 'stores/store_listing', locals: {store: store} %>
+          <%= render partial: 'stores/store_listing', locals: {store: store} %>
       <% end %>
-    </ul>
-  <% else %>
-    <p>No stores are currently streaming</p>
-  <% end %>
-
-  <h2>Stores I subscribe to:</h2>
-  <% if @subscribed_stores.count > 0 %>
-    <ul>
+    <% else %>
+        <p>No stores are currently streaming</p>
+    <% end %>
+  </div>
+    <h2>Stores I subscribe to:</h2>
+  <div class="row">
+    <% if @subscribed_stores.count > 0 %>
       <% @subscribed_stores.each do |store| %>
-        <%= render partial: 'stores/store_listing', locals: {store: store} %>
+          <%= render partial: 'stores/store_listing', locals: {store: store} %>
       <% end %>
-    </ul>
-  <% else %>
-    <p>You aren't currently subscribed to any stores</p>
-  <% end %>
-
+    <% else %>
+        <p>You aren't currently subscribed to any stores</p>
+    <% end %>
+  </div>
   <h2>Other Popular stores:</h2>
-  <% if @other_stores.count > 0 %>
-    <ul>
-      <% @other_stores.each do |store| %>
-        <%= render partial: 'stores/store_listing', locals: {store: store} %>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>All stores have already been listed above!</p>
-  <% end %>
+  <div class="row">
+    <% if @other_stores.count > 0 %>
+        <% @other_stores.each do |store| %>
+            <%= render partial: 'stores/store_listing', locals: {store: store} %>
+        <% end %>
+    <% else %>
+        <p>All stores have already been listed above!</p>
+    <% end %>
+  </div>
 </div>

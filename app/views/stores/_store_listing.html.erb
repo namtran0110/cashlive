@@ -1,3 +1,15 @@
-<li>
-  <p><%= store.name %> <%= link_to "view store", store_path(store), class: 'btn btn-secondary btn-small' %></p>
-</li>
+<div class="col-md-6">
+  <div class="content">
+    <a href="<%= store_path(store) %>">
+      <div class="grid">
+        <figure class="effect-apollo" style="max-height: 250px; height: 100vh;">
+          <%= image_tag store.cover_photo(:large) %>
+          <figcaption>
+            <h3><%= store.name %></h3>
+            <p>Go to store &rarr;</p>
+          </figcaption>
+        </figure>
+      </div>
+    </a>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329003222) do
+ActiveRecord::Schema.define(version: 20170404132448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,34 @@ ActiveRecord::Schema.define(version: 20170329003222) do
     t.datetime "updated_at", null: false
     t.index ["store_id"], name: "index_messages_on_store_id", using: :btree
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.decimal  "unit_price"
+    t.integer  "quantity"
+    t.decimal  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
+    t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
+  end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal  "subtotal"
+    t.decimal  "shipping"
+    t.decimal  "total"
+    t.integer  "order_status_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   end
 
   create_table "overall_averages", force: :cascade do |t|
@@ -103,10 +131,17 @@ ActiveRecord::Schema.define(version: 20170329003222) do
 
   create_table "stores", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "name"
-    t.boolean  "streaming_now", default: false
+    t.string   "name",                                     null: false
+    t.string   "slug",                                     null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.boolean  "streaming_now",            default: false
+    t.text     "description"
+    t.string   "cover_photo_file_name"
+    t.string   "cover_photo_content_type"
+    t.integer  "cover_photo_file_size"
+    t.datetime "cover_photo_updated_at"
+    t.index ["slug"], name: "index_stores_on_slug", unique: true, using: :btree
     t.index ["user_id"], name: "index_stores_on_user_id", using: :btree
   end
 
@@ -147,6 +182,9 @@ ActiveRecord::Schema.define(version: 20170329003222) do
 
   add_foreign_key "messages", "stores"
   add_foreign_key "messages", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "order_statuses"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "users", on_delete: :cascade
   add_foreign_key "stream_instances", "stores"
