@@ -8,7 +8,7 @@
 
     <!-- Ratings -->
     <% if current_user %>
-      Quality: <%= rating_for @store, "quality", star: 10, disable_after_rate: false, cancel_place: 'right' %>
+      Quality: <%= rating_for @store, "quality", star_path: '/images', star: 10, disable_after_rate: false, cancel_place: 'right' %>
     <% end %>
     <% if @store.average("quality") != nil %>
       Total score: <%= @store.average("quality").avg%>/<%= @store.rates("quality").count %>
