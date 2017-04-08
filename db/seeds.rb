@@ -15,6 +15,8 @@ user07 = User.new password: "123123", email: "harley@gmail.com", username: "Harl
 user08 = User.new password: "123123", email: "chang@gmail.com", username: "Changmakeup", avatar:File.new('seed_images/changmakeup.jpg')
 user09 = User.new password: "123123", email: "steve@gmail.com", username: "Steve Jobs", avatar:File.new('seed_images/steve.jpg')
 user10 = User.new password: "123123", email: "ricknmorty@gmail.com", username: "Rick & Morty", avatar:File.new('seed_images/rick.jpg')
+user11 = User.new password: "123123", email: "ssp@gmail.com", username: "Saigon Soul Pool Party", avatar:File.new('seed_images/ssp.jpg')
+user12 = User.new password: "123123", email: "wow@gmail.com", username: "World Of Warcraft", avatar:File.new('seed_images/wow_user.jpg')
 
 puts "saving users to database..."
 user01.save
@@ -27,6 +29,8 @@ user07.save
 user08.save
 user09.save
 user10.save
+user11.save
+user12.save
 Store.update_all(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde totam, tempora perferendis esse natus animi fuga sit voluptatibus inventore odit nihil cum quae ad provident debitis praesentium aspernatur laboriosam nulla eos assumenda iste, voluptatem obcaecati ipsa. Mollitia assumenda tempora earum deleniti quibusdam. Maxime tempora debitis est porro? Non, nobis, incidunt.")
 
 puts "linking subscriptions..."
@@ -47,6 +51,9 @@ Store.find(user07.store.id).update(cover_photo: File.new('seed_images/trung_cove
 Store.find(user08.store.id).update(cover_photo: File.new('seed_images/changmakeup_cover.jpg'))
 Store.find(user09.store.id).update(cover_photo: File.new('seed_images/apple.jpg'))
 Store.find(user10.store.id).update(cover_photo: File.new('seed_images/ricknmorty.jpg'))
+Store.find(user11.store.id).update(cover_photo: File.new('seed_images/ssp_background.jpg'))
+Store.find(user12.store.id).update(cover_photo: File.new('seed_images/wow.jpg'))
+
 puts "generating products..."
 Product.create store_id: user01.store.id, name: "Guitar", price: 1000000, image: File.new('seed_images/guitar.jpg'),  description: "It's a Guitar"
 Product.create store_id: user01.store.id, name: "Keyboard", price: 1200000, image: File.new('seed_images/keyboard.jpg'),  description: "The Less Expensive Piano"
@@ -86,6 +93,12 @@ Product.create store_id: user09.store.id, name: "iPod", price: 970000, image: Fi
 Product.create store_id: user10.store.id, name: "Spaceship", price: 122000000, image: File.new('seed_images/spaceship.jpg'), description: "Come with inception battery"
 Product.create store_id: user10.store.id, name: "Plumbus", price: 810000, image: File.new('seed_images/plumbus.jpg'), description: "I don't even know wtf this is"
 Product.create store_id: user10.store.id, name: "Meeseeks", price: 1000000, image: File.new('seed_images/meeseeks.jpg'), description: "Do what you order till I die"
+
+Product.create store_id: user11.store.id, name: "Ticket", price: 150000, image: File.new('seed_images/ssp_ticket.jpg'), description: "Come And Have Some Fun With Us!"
+
+Product.create store_id: user12.store.id, name: "Sword Of Hero", price: 250000, image: File.new('seed_images/sword1.jpg'), description: "Sword of Hero"
+Product.create store_id: user12.store.id, name: "Legend's dagger", price: 350000, image: File.new('seed_images/sword2.jpg'), description: "Sword of Legend"
+Product.create store_id: user12.store.id, name: "Smash the world", price: 450000, image: File.new('seed_images/sword3.jpg'), description: "Only for Gods"
 
 puts "generating Order statuses..."
 OrderStatus.delete_all
