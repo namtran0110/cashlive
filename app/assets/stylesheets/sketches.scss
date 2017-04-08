@@ -216,7 +216,7 @@ section.products {
   }
   @include respond-to(480px) {
     padding-bottom: 145px;
-    .messages .chat-input button {
+    .chat-input button {
       display: block;
     }
   }
