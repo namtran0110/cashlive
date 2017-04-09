@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
       redirect_to user_session_path
     else
       @user = current_user
-
+      @categories = Category.all
       non_empty_stores = Store.joins(:products).group('stores.id')
 
       @stores = non_empty_stores.where.not(user_id: @user.id)
