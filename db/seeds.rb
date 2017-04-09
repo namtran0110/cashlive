@@ -35,7 +35,6 @@ Store.update_all(description: "Lorem ipsum dolor sit amet, consectetur adipisici
 
 puts "linking subscriptions..."
 # This step is optional
-
 Follow.create following_id: user02.id, follower_id: user01.id
 Follow.create following_id: user03.id, follower_id: user02.id
 Follow.create following_id: user01.id, follower_id: user03.id
@@ -55,10 +54,10 @@ Store.find(user11.store.id).update(cover_photo: File.new('seed_images/ssp_backgr
 Store.find(user12.store.id).update(cover_photo: File.new('seed_images/wow.jpg'))
 
 puts "generating categories..."
-category01 = Category.new name: "Education"
-category02 = Category.new name: "Entertainment"
-category03 = Category.new name: "Food"
-category04 = Category.new name: "Technology"
+category01 = Category.new name: "Education", avatar: File.new('seed_images/ed.jpg')
+category02 = Category.new name: "Entertainment", avatar: File.new('seed_images/entertainment.jpg')
+category03 = Category.new name: "Food", avatar: File.new('seed_images/food.jpg')
+category04 = Category.new name: "Technology", avatar: File.new('seed_images/technology.jpg')
 
 puts "saving categories to database..."
 category01.save
