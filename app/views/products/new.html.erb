@@ -28,6 +28,10 @@
         <%= f.label :Image %>
         <%= f.file_field :image, class:'form-control' %>
       </div>
+      <div class="field">
+        <%= f.label :Category %>
+        <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select one!") %>
+      </div>
       <div class="actions text-center">
         <%= f.submit class:'btn btn-success' %>
       </div>

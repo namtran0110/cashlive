@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :store
+  belongs_to :category
   has_many :order_items
 
   validates :price, :presence => true
