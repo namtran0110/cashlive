@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :categories
   resources :carts, only: [:index]
   post '/payment' => 'carts#payment'
   resources :order_items, only: [:create, :update, :destroy]
