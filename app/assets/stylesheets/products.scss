@@ -15,7 +15,7 @@
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 7% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
@@ -153,7 +153,7 @@
    -webkit-transition: -webkit-transform 0.4s;
    transition: transform 0.4s;
    -webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
-   transform: scale3d(1.9,2,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+   transform: scale3d(2,4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
  }
 
  figure.effect-apollo p {

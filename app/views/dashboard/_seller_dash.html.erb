@@ -32,7 +32,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label><strong>Products included in stream:</strong></label>
-                  <%= select_tag :product_ids, options_from_collection_for_select(@available_products, :id, :name), multiple: true, class: 'form-control' %>
+                  <%= select_tag :product_ids, options_from_collection_for_select(@available_products, :id, :name), multiple: true, class: 'form-control', :required => true %>
                 </div>
               </div>
             </div>

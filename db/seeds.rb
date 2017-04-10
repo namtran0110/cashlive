@@ -5,7 +5,7 @@ puts "seeding data"
 ## USE THIS FORMULA TO ADD YOUR SEEDS. Put images in "seed_images" folder first.
 ##
 puts "generating users..."
-user01 = User.new password: "123123", email: "armyofbees@example.com", username: "ArmyOfBees", avatar: File.new('seed_images/armyofbees.png')
+user01 = User.new password: "123123", email: "gatsby@example.com", username: "The Great Gatsby", avatar: File.new('seed_images/gatsby.jpg')
 user02 = User.new password: "123123", email: "tlock@example.com", username: "TLock", avatar: File.new('seed_images/tlock.jpg')
 user03 = User.new password: "123123", email: "wholefood@example.com", username: "Whole Foods", avatar: File.new('seed_images/whole_foods.jpg')
 user04 = User.new password: "123123", email: "cena@gmail.com", username: "John Cena", avatar:File.new('seed_images/cena.jpg')
@@ -17,6 +17,8 @@ user09 = User.new password: "123123", email: "steve@gmail.com", username: "Steve
 user10 = User.new password: "123123", email: "ricknmorty@gmail.com", username: "Rick & Morty", avatar:File.new('seed_images/rick.jpg')
 user11 = User.new password: "123123", email: "ssp@gmail.com", username: "Saigon Soul Pool Party", avatar:File.new('seed_images/ssp.jpg')
 user12 = User.new password: "123123", email: "wow@gmail.com", username: "World Of Warcraft", avatar:File.new('seed_images/wow_user.jpg')
+user13 = User.new password: "123123", email: "f@gmail.com", username: "F Fashion", avatar:File.new('seed_images/fashion.jpg')
+user14 = User.new password: "123123", email: "ralph@gmail.com", username: "Ralph Lauren", avatar:File.new('seed_images/the_legend_himself.jpg')
 
 puts "saving users to database..."
 user01.save
@@ -31,6 +33,9 @@ user09.save
 user10.save
 user11.save
 user12.save
+user13.save
+user14.save
+
 Store.update_all(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde totam, tempora perferendis esse natus animi fuga sit voluptatibus inventore odit nihil cum quae ad provident debitis praesentium aspernatur laboriosam nulla eos assumenda iste, voluptatem obcaecati ipsa. Mollitia assumenda tempora earum deleniti quibusdam. Maxime tempora debitis est porro? Non, nobis, incidunt.")
 
 puts "linking subscriptions..."
@@ -40,7 +45,7 @@ Follow.create following_id: user03.id, follower_id: user02.id
 Follow.create following_id: user01.id, follower_id: user03.id
 
 puts "adding store cover photos..."
-Store.find(user01.store.id).update(cover_photo: File.new('seed_images/hive.jpg'))
+Store.find(user01.store.id).update(cover_photo: File.new('seed_images/gatsby_background.jpg'))
 Store.find(user02.store.id).update(cover_photo: File.new('seed_images/tlock_cover.jpg'))
 Store.find(user03.store.id).update(cover_photo: File.new('seed_images/whole_foods_cover.jpg'))
 Store.find(user04.store.id).update(cover_photo: File.new('seed_images/cena_background.jpg'))
@@ -52,23 +57,32 @@ Store.find(user09.store.id).update(cover_photo: File.new('seed_images/apple.jpg'
 Store.find(user10.store.id).update(cover_photo: File.new('seed_images/ricknmorty.jpg'))
 Store.find(user11.store.id).update(cover_photo: File.new('seed_images/ssp_background.jpg'))
 Store.find(user12.store.id).update(cover_photo: File.new('seed_images/wow.jpg'))
+Store.find(user13.store.id).update(cover_photo: File.new('seed_images/fashion_background.jpg'))
+Store.find(user14.store.id).update(cover_photo: File.new('seed_images/PRL.jpg'))
 
 puts "generating categories..."
 category01 = Category.new name: "Education", avatar: File.new('seed_images/ed.jpg')
 category02 = Category.new name: "Entertainment", avatar: File.new('seed_images/entertainment.jpg')
 category03 = Category.new name: "Food", avatar: File.new('seed_images/food.jpg')
 category04 = Category.new name: "Technology", avatar: File.new('seed_images/technology.jpg')
+category05 = Category.new name: "Fashion", avatar: File.new('seed_images/fashion_cat.jpg')
+category06 = Category.new name: "Luxury", avatar: File.new('seed_images/luxury_cat.jpg')
 
 puts "saving categories to database..."
 category01.save
 category02.save
 category03.save
 category04.save
+category05.save
+category06.save
 
 puts "generating products..."
-Product.create store_id: user01.store.id, name: "Guitar", price: 1000000, image: File.new('seed_images/guitar.jpg'),  description: "It's a Guitar", category_id: 2
-Product.create store_id: user01.store.id, name: "Keyboard", price: 1200000, image: File.new('seed_images/keyboard.jpg'),  description: "The Less Expensive Piano", category_id: 2
-Product.create store_id: user01.store.id, name: "Ukelele", price: 900000, image: File.new('seed_images/ukelele.jpg'),  description: "I'm yours", category_id: 2
+Product.create store_id: user01.store.id, name: "Gatsby Mansion", price: 99999000, image: File.new('seed_images/gatsby_mension.jpg'),  description: "Gatsby Mansion", category_id: 6
+Product.create store_id: user01.store.id, name: "Gatsby Car", price: 92000000, image: File.new('seed_images/gatsby_car.jpg'),  description: "The one that kill the cheating wife", category_id: 6
+Product.create store_id: user01.store.id, name: "Gatsby watch", price: 52900000, image: File.new('seed_images/gatsby_watch.jpg'),  description: "The old sport", category_id: 6
+Product.create store_id: user01.store.id, name: "Daisy' dress", price: 61000000, image: File.new('seed_images/daisy_dress.jpg'),  description: "The one and only", category_id: 6
+Product.create store_id: user01.store.id, name: "Daisy' hat", price: 8800000, image: File.new('seed_images/daisy_hat.jpg'),  description: "The one and only", category_id: 6
+Product.create store_id: user01.store.id, name: "Just spiderman", price: 8800000, image: File.new('seed_images/spiderman.jpg'),  description: "Just spiderman", category_id: 2
 
 Product.create store_id: user02.store.id, name: "Honda Wave RSX", price: 24490000, image: File.new('seed_images/wave.png'),  description: "The best wave you can ride", category_id: 4
 Product.create store_id: user02.store.id, name: "Full Face Helmet", price: 400000, image: File.new('seed_images/fullface.jpg'),  description: "Play Safe", category_id: 4
@@ -80,7 +94,7 @@ Product.create store_id: user03.store.id, name: "Viet Quat", price: 10000, image
 Product.create store_id: user03.store.id, name: "Dua", price: 20000, image: File.new('seed_images/dua.jpg'),  description: "Coco nutz", category_id: 3
 
 Product.create store_id: user04.store.id, name: "WWE Belt", price:120000000, image: File.new('seed_images/wwe.jpg'), description: "The only true champion with the belt", category_id: 2
-Product.create store_id: user04.store.id, name: "John Cena House", price:770000000, image: File.new('seed_images/cena_house.jpg'), description: "The Beautiful Condo Near The Beach", category_id: 2
+Product.create store_id: user04.store.id, name: "John Cena House", price:770000000, image: File.new('seed_images/cena_house.jpg'), description: "The Beautiful Condo Near The Beach", category_id: 6
 Product.create store_id: user04.store.id, name: "U Can't See Me", price: 60000, image: File.new('seed_images/cena_hat.jpg'), description: "U Can't See Me", category_id: 2
 
 Product.create store_id: user05.store.id, name: "Vespa", price:59000000, image: File.new('seed_images/vespa.jpg'), description: "Cool Bike", category_id: 4
@@ -110,6 +124,13 @@ Product.create store_id: user11.store.id, name: "Ticket", price: 150000, image: 
 Product.create store_id: user12.store.id, name: "Sword Of Hero", price: 250000, image: File.new('seed_images/sword1.jpg'), description: "Sword of Hero", category_id: 2
 Product.create store_id: user12.store.id, name: "Legend's dagger", price: 350000, image: File.new('seed_images/sword2.jpg'), description: "Sword of Legend", category_id: 2
 Product.create store_id: user12.store.id, name: "Smash the world", price: 450000, image: File.new('seed_images/sword3.jpg'), description: "Only for Gods", category_id: 2
+
+Product.create store_id: user13.store.id, name: "Robot Vietnam Next Top Model", price: 490000, image: File.new('seed_images/event_1.jpg'), description: "Fashion in the eyes of 0101", category_id: 5
+Product.create store_id: user13.store.id, name: "White Blouse Event", price: 910000, image: File.new('seed_images/event_2.jpg'), description: "All Whites", category_id: 5
+
+Product.create store_id: user14.store.id, name: "Long Coat", price: 854000, image: File.new('seed_images/PRL1.jpg'), description: "Fashionably beautiful", category_id: 5
+Product.create store_id: user14.store.id, name: "Pants", price: 614000, image: File.new('seed_images/PRL2.jpg'), description: "Looking good for single life", category_id: 5
+Product.create store_id: user14.store.id, name: "Long Sleeves", price: 814000, image: File.new('seed_images/PRL3.jpg'), description: "The one Trump would approve", category_id: 5
 
 puts "generating Order statuses..."
 OrderStatus.delete_all

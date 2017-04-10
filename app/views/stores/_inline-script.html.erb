@@ -103,11 +103,6 @@
         });
         var flagInitSuccess = 0;
         videoRecorder.initRecorder(function () {
-            // Firefox supports audio+video recording in single file
-//              if (!!navigator.mozGetUserMedia) {
-//                  videoRecorder.startRecording();
-//                  return;
-//              }
             callBackInitSuccess();
         });
 
@@ -166,6 +161,7 @@
             config.attachStream.getVideoTracks()[0].stop();
             config.attachStream.getAudioTracks()[0].stop();
         };
+
     }
     function captureUserMedia(callback) {
         var constraints = null;

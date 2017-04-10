@@ -4,7 +4,7 @@
 
     <% if @streaming_stores.count > 0 %>
 
-        <h4>
+        <h4 style="padding-top: 20px">
           <small>Top stores:</small>
           <br>
           <span>Live<svg xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="5" fill="red"></circle></svg></span>
@@ -36,14 +36,13 @@
         <!-- dynamically populated -->
       </div>
   <% else %>
-      <div style="height: 100px; width: 100%;">
-        <h4 class="text-center" style="display: block; line-height: 100px; color: white">No stores are currently
-          streaming :'(</h4>
+      <div style="height: 200px; width: 100%;">
+        <h1 class="text-center" style="display: block; line-height: 10px; color: white; padding-top: 100px">GET CACHY - GET KACHING!</h1>
       </div>
   <% end %>
 </div>
 <div class="container">
-  <h2 style="padding-top: 20px;">Other Popular stores:</h2>
+  <h2 style="padding-top: 20px; padding-left: 1px">Popular stores:</h2>
   <div class="row">
     <% if @other_stores.count > 0 %>
         <% @other_stores.each do |store| %>
