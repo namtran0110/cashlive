@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
+<div class="container" style="padding-top: 50px">
   <h2><%= @category.name %></h2>
   <div class="row">
     <% Product.where(category_id: @category.id).each do |product| %>

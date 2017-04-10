@@ -89,9 +89,10 @@ section.products {
 }
 .panel {
   position: absolute;
-  top: 0;
+  top: 26px;
   bottom: 0;
   width: 340px;
+  height: 100%;
   border-left: 3px solid $brand;
   background: $light_gray;
   &.open {
