@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @order_item = current_order.order_items.new
+    @store = Store.friendly.find(params[:id])
   end
 
   # GET /categories/new
