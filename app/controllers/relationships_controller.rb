@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
     rescue => e
       puts e.message
     end
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def unfollow_user

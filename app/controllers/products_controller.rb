@@ -36,15 +36,7 @@ class ProductsController < ApplicationController
     store = current_user.store
     @product = store.products.create(product_params)
     @product.category_id = params[:category_id]
-
-    respond_to do |format|
-      if @product.save
-        redirect_to root_path
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
-      end
-    end
+    redirect_to store
   end
 
   # PUT /posts/:post_id/comments/:id
