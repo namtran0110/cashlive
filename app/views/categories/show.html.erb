@@ -24,7 +24,7 @@
               <div class="modal-content">
                 <div class="row">
                   <div class="col-md-6">
-                    <%= image_tag product.image.url(:original), class: 'card-img-top' %>
+                    <%= image_tag product.image.url(:original),  :style => "max-height: 476px" %>
                   </div>
                   <div class="col-md-6 text-left">
                     <h3><%= product.name %></h3>

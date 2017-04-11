@@ -5,9 +5,21 @@
 <!-- MAIN -->
 <div id="main">
   <% if @store.streaming_now == true %>
-      <h3 id="store-headline"><%= @store.name %><span class="message"> is live: <%= @store.stream_instance.title %></span></h3>
+      <h3 id="store-headline"><% if current_user && current_user.id != @store.user.id %>
+            <% if current_user_is_following(current_user.id, @store.user.id)%>
+                <%= link_to "Unsubscribe", unfollow_user_path(@store.user.username)%>
+            <% else %>
+                <%= link_to "Subscribe", follow_user_path(@store.user.username)%>
+            <% end %>
+            <% end %> <%= @store.name %><span class="message"> is live: <%= @store.stream_instance.title %></span></h3>
   <% else %>
-      <h3 id="store-headline"><%= @store.name %><span class="message">   is offline now</span></h3>
+      <h3 id="store-headline"> <% if current_user && current_user.id != @store.user.id %>
+            <% if current_user_is_following(current_user.id, @store.user.id)%>
+                <%= link_to "Unsubscribe", unfollow_user_path(@store.user.username), class: 'btn btn-primary'%>
+            <% else %>
+                <%= link_to "Subscribe", follow_user_path(@store.user.username), class: 'btn btn-primary'%>
+            <% end %>
+            <% end %><%= @store.name %><span class="message">  is offline</span></h3>
   <% end %>
   <section class="theater">
 

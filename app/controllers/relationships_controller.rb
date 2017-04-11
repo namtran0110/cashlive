@@ -12,6 +12,6 @@ class RelationshipsController < ApplicationController
   def unfollow_user
     @user = User.find_by username: params[:username]
     current_user.unfollow @user.id
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 end

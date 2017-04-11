@@ -82,7 +82,7 @@ Product.create store_id: user01.store.id, name: "Gatsby Car", price: 92000000, i
 Product.create store_id: user01.store.id, name: "Gatsby watch", price: 52900000, image: File.new('seed_images/gatsby_watch.jpg'),  description: "The old sport", category_id: 6
 Product.create store_id: user01.store.id, name: "Daisy' dress", price: 61000000, image: File.new('seed_images/daisy_dress.jpg'),  description: "The one and only", category_id: 6
 Product.create store_id: user01.store.id, name: "Daisy' hat", price: 8800000, image: File.new('seed_images/daisy_hat.jpg'),  description: "The one and only", category_id: 6
-Product.create store_id: user01.store.id, name: "Just spiderman", price: 8800000, image: File.new('seed_images/spiderman.jpg'),  description: "Just spiderman", category_id: 2
+Product.create store_id: user01.store.id, name: "Just spiderman", price: 0, image: File.new('seed_images/spiderman.jpg'),  description: "Just spiderman", category_id: 2
 
 Product.create store_id: user02.store.id, name: "Honda Wave RSX", price: 24490000, image: File.new('seed_images/wave.png'),  description: "The best wave you can ride", category_id: 4
 Product.create store_id: user02.store.id, name: "Full Face Helmet", price: 400000, image: File.new('seed_images/fullface.jpg'),  description: "Play Safe", category_id: 4
